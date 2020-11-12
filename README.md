@@ -12,7 +12,7 @@ The project uses Microsoft Adventurework database 2019 to develop AdventureWork 
 
 ## Task 1 : Populate Master Tables
 
-## Table 1 :  dbo.DimCurrency
+#### Table 1 :  dbo.DimCurrency
 
 The AdventureWork2019 database table [Sales].[Currency] has data to be populated in dbo.DimCurrency. Inorder to try different datasources, the [Sales].[Currency]  data is populated in CSV file and uploaded in OLEDB destination table dbo.DimCurrency of AdventureWorksDW. The reference package name is DimCUrrency.
 
