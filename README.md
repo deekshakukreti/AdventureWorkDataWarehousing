@@ -1,4 +1,4 @@
-# AdventureWorkDataWarehousing
+# AdventureWorkDataWarehousing 2019
 
 ## Project Objective
 
@@ -9,11 +9,13 @@ The project uses Microsoft Adventurework database 2019 to develop AdventureWork 
 3. Designed star schema dimensional model by loading facts and dimesnions.
 4. Implement Error handelling and Logging of ETL solutions.
 
-<<<<<<< HEAD
-## Task 1
 
-In this task I have populated most of the dimension tables from from different sources. 
-=======
+## Task 1 : Populate Master Tables
+
+## Table 1 :  dbo.DimCurrency
+
+The AdventureWork2019 database table [Sales].[Currency] has data to be populated in dbo.DimCurrency. Inorder to try different datasources, the [Sales].[Currency]  data is populated in CSV file and uploaded in OLEDB destination table dbo.DimCurrency of AdventureWorksDW. The reference package name is DimCUrrency.
 
 
->>>>>>> 4c69a03d140a6eb48a5e405826bf340747173f1d
+
+
