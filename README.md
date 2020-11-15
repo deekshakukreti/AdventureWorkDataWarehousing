@@ -14,8 +14,11 @@ The project uses Microsoft Adventurework database 2019 to develop AdventureWork 
 
 #### Table 1 :  dbo.DimCurrency
 
-The AdventureWork2019 database table [Sales].[Currency] has data to be populated in dbo.DimCurrency. Inorder to try different datasources, the [Sales].[Currency]  data is populated in CSV file and uploaded in OLEDB destination table dbo.DimCurrency of AdventureWorksDW. The reference package name is DimCUrrency.
+The AdventureWork2019 database table [Sales].[Currency] has data to be populated in dbo.DimCurrency. Inorder to try different datasources, the [Sales].[Currency]  data is populated in CSV file and uploaded in OLEDB destination table dbo.DimCurrency of AdventureWorksDW. The reference package name is DimCurrency.
 
+#### Table 2 :  dbo.DimSalesTerritory
+
+The table used to populate dbo.DimSalesTerritory is [Sales].[SalesTerritory] from AdventureWork2019 database. The package DimSalesTerritory uses some SSIS components to perform ETL process for this table.
 
 
 
