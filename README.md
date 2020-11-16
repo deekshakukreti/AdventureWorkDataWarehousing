@@ -10,7 +10,7 @@ The project uses Microsoft Adventurework database 2019 to develop AdventureWork 
 4. Implement Error handelling and Logging of ETL solutions.
 
 
-## Task 1 : Populate Master Tables
+## Task 1 : Populate DataWarehouse Master Tables
 
 #### Table 1 :  dbo.DimCurrency
 
@@ -18,7 +18,11 @@ The AdventureWork2019 database table [Sales].[Currency] has data to be populated
 
 #### Table 2 :  dbo.DimSalesTerritory
 
-The table used to populate dbo.DimSalesTerritory is [Sales].[SalesTerritory] from AdventureWork2019 database. The package DimSalesTerritory uses some SSIS components to perform ETL process for this table.
+The SQL server database table used in to populate dbo.DimSalesTerritory is [Sales].[SalesTerritory] from AdventureWork2019 database. The package DimSalesTerritory uses data flowtask in SSIS components to perform ETL process for this table. OLEDB source and Destination extract and load data to different databases in SQL server.
+
+### Table 3 :  dbo.DimGeography
+
+
 
 
 
