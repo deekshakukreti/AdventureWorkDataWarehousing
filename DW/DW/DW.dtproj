@@ -26,12 +26,13 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-0V2M2V1</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAUGlXyzGlFE6/IjLBudVpkwAAAAACAAAAAAAQZgAAAAEAACAAAAC8cz4Eew848QdIUL5fQ/cE+Cd7115IusPdvvC8ctfywQAAAAAOgAAAAAIAACAAAAA4d0Oljr8kT479zYLrO95ZyCisQB+lFOMzQjyBopq/npAAAADpqQWWHvtV4nhsQR3y/l1t4MqmDT+0V8hSAMKgNcy6mawvH4lHggwS85uBx/WWaXKMYwiPAO7DcsGwwL3p0q8j55r1hPkZQbxkwskuhCoTpep1Iasx8CPq1oz71NaEaPC6Nl+McAofapZu93rM27ydrhdv3E4XYMygJ/2KBiC07uwaS55RreNia8Kf4XPy22VAAAAA+n7LKI5wsMCSD/zynqiSEtvZWn4SEwqKyR2PCb7Ufeky+5bznb7kSrcGKWDbHc9tTzD0mkKT1/PUt13E7RSsig==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAyZxTcoAhXEyB4QcfhYjRWwAAAAACAAAAAAAQZgAAAAEAACAAAAApyzxZCifVWm1I3dYtWWYC3PsRMFCUfPFu2el472Er0AAAAAAOgAAAAAIAACAAAABsOZFp8rXYw7XRnGOnQPcWjyTR17Ire3MVnMGyOIjVFJAAAABRTxB0KQmqcW5RhuEkDp1hiNGblnTWZfzMzm5F3r2cX9uc9SM3N2zk4lU7z7zAmCgeIk7OT6xpB4PnYHdxJYcRVGTsNf47ct/cZKKHplgO3OZJp0WmcRgyBYaLFhgvq2jT8+1Gy/lvUFTKLqc2GTeuFTMCy3OKYHuSTkUzeBpFvSSEtWfgaZqkyHAFJ2L0lWpAAAAA7MSaECoIYu0w8Sd2kRLuTOB+wxE6zFOWp3Yavu83MT81FjY9oOEqnnGAbs0NfICgEz8QNk71d5o9yq7tzEcd2A==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="DimCurrency.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimSalesTerritory.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DimGeography.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="AdventureWorkSource.conmgr" />
@@ -611,10 +612,27 @@
                 <SSIS:Property SSIS:Name="Name">DimSalesTerritory</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">15</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{AEC671E7-3C52-46E5-8EF3-C6BC3244CD37}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0D1A0088-FA23-4B68-BB01-E9C68CF139A5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DimGeography.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{8F9AC2F2-3245-4E84-B1DB-9FE575A3BB06}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">DimGeography</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">9</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E7AE7F9B-B7B8-419A-A81E-5EA60C73E3BD}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
