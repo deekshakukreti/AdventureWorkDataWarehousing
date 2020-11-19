@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="DimGeography"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{DAAC7AF5-659E-46E9-98DD-A511B6ABF664}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{5B916F0A-2187-4C35-9815-12AEF0B015ED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -755,13 +755,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "Australia" ? "Australia" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "United States" ? "Estados Unidos" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "Canada" ? "Canada" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "France" ? "Francia" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "Germany" ? "Alemania" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "United Kingdom" ? "Reino Unido" : ""</property>
+                          name="Expression">(#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "AU" ? "Australia" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "US" ? "Estados Unidos" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "CA" ? "Canada" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "FR" ? "Francia" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "DE" ? "Alemania" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "UK" ? "Reino Unido" : ""</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(CountryRegionCode) == "Australia" ? "Australia" : (CountryRegionCode) == "United States" ? "Estados Unidos" : (CountryRegionCode) == "Canada" ? "Canada" : (CountryRegionCode) == "France" ? "Francia" : (CountryRegionCode) == "Germany" ? "Alemania" : (CountryRegionCode) == "United Kingdom" ? "Reino Unido" : ""</property>
+                          name="FriendlyExpression">(CountryRegionCode) == "AU" ? "Australia" : (CountryRegionCode) == "US" ? "Estados Unidos" : (CountryRegionCode) == "CA" ? "Canada" : (CountryRegionCode) == "FR" ? "Francia" : (CountryRegionCode) == "DE" ? "Alemania" : (CountryRegionCode) == "UK" ? "Reino Unido" : ""</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -778,13 +778,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "Australia" ? "Australie" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "United States" ? "États-Unis" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "Canada" ? "Canada" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "France" ? "France" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "Germany" ? "Allemagne" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "United Kingdom" ? "Royaume-Uni" : ""</property>
+                          name="Expression">(#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "AU" ? "Australie" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "US" ? "États-Unis" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "CA" ? "Canada" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "FR" ? "France" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "DE" ? "Allemagne" : (#{Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[CountryRegionCode]}) == "UK" ? "Royaume-Uni" : ""</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(CountryRegionCode) == "Australia" ? "Australie" : (CountryRegionCode) == "United States" ? "États-Unis" : (CountryRegionCode) == "Canada" ? "Canada" : (CountryRegionCode) == "France" ? "France" : (CountryRegionCode) == "Germany" ? "Allemagne" : (CountryRegionCode) == "United Kingdom" ? "Royaume-Uni" : ""</property>
+                          name="FriendlyExpression">(CountryRegionCode) == "AU" ? "Australie" : (CountryRegionCode) == "US" ? "États-Unis" : (CountryRegionCode) == "CA" ? "Canada" : (CountryRegionCode) == "FR" ? "France" : (CountryRegionCode) == "DE" ? "Allemagne" : (CountryRegionCode) == "UK" ? "Royaume-Uni" : ""</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -928,6 +928,13 @@
                       cachedName="SalesTerritoryKey"
                       externalMetadataColumnId="Package\Load DimGeography\DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryKey]"
                       lineageId="Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[SalesTerritoryKey]" />
+                    <inputColumn
+                      refId="Package\Load DimGeography\DimGeography.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\Load DimGeography\DimGeography.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[PostalCode]" />
                     <inputColumn
                       refId="Package\Load DimGeography\DimGeography.Inputs[OLE DB Destination Input].Columns[SpanishCountryRegionName]"
                       cachedDataType="wstr"
@@ -1483,6 +1490,13 @@
                       cachedLength="50"
                       cachedName="EnglishCountryRegionName"
                       lineageId="Package\Load DimGeography\TerritoryID_PK.Outputs[Sort Output].Columns[EnglishCountryRegionName]" />
+                    <inputColumn
+                      refId="Package\Load DimGeography\Merge Join 2.Inputs[Merge Join Left Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Load DimGeography\TerritoryID_PK.Outputs[Sort Output].Columns[PostalCode]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1612,6 +1626,20 @@
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Load DimGeography\Merge Join 2.Inputs[Merge Join Right Input].Columns[SalesTerritoryKey]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load DimGeography\Merge Join 2.Outputs[Merge Join Output].Columns[PostalCode]"
+                      name="PostalCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimGeography\Merge Join 2.Inputs[Merge Join Left Input].Columns[PostalCode]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2662,7 +2690,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
+                  name="EliminateDuplicates">true</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the maximum number of threads to use for sorting."
@@ -2776,6 +2804,23 @@
                           name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Load DimGeography\TerritoryID_PK.Inputs[Sort Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      lineageId="Package\Load DimGeography\Merge Join 1.Outputs[Merge Join Output].Columns[PostalCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2868,6 +2913,21 @@
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Load DimGeography\Merge Join 1.Outputs[Merge Join Output].Columns[TerritoryID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimGeography\TerritoryID_PK.Outputs[Sort Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load DimGeography\TerritoryID_PK.Outputs[Sort Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Load DimGeography\Merge Join 1.Outputs[Merge Join Output].Columns[PostalCode]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3349,39 +3409,41 @@
         <NodeLayout
           Size="149.333333333334,42.6666666666667"
           Id="Package\Load DimGeography\DimGeography"
-          TopLeft="462.999993517995,519.249993897975" />
+          TopLeft="444.999993368983,512.833326940735" />
         <EdgeLayout
           Id="Package\Load DimGeography.Paths[Derived Column Output]"
           TopLeft="547.958326320474,478.899995048642">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-10.2916661358125,40.3499988493325"
+              EndConnector="-28.291666284824,33.9333318920932"
               Start="0,0"
-              End="-10.2916661358125,32.8499988493325">
+              End="-28.291666284824,26.4333318920932">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.1749994246662" />
+                    End="0,12.9666659460466" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.1749994246662"
-                    Point2="0,20.1749994246662"
-                    Point3="-4,20.1749994246662" />
+                    Point1="0,12.9666659460466"
+                    Point2="0,16.9666659460466"
+                    Point3="-4,16.9666659460466" />
                   <mssgle:LineSegment
-                    End="-6.29166613581253,20.1749994246662" />
+                    End="-24.291666284824,16.9666659460466" />
                   <mssgle:CubicBezierSegment
-                    Point1="-6.29166613581253,20.1749994246662"
-                    Point2="-10.2916661358125,20.1749994246662"
-                    Point3="-10.2916661358125,24.1749994246662" />
+                    Point1="-24.291666284824,16.9666659460466"
+                    Point2="-28.291666284824,16.9666659460466"
+                    Point3="-28.291666284824,20.9666659460466" />
                   <mssgle:LineSegment
-                    End="-10.2916661358125,32.8499988493325" />
+                    End="-28.291666284824,26.4333318920932" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-22.145833142412,21.9666659460466,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>DW</Name>
-    <LastWriteTime>2020-11-18T16:38:23.4556066Z</LastWriteTime>
+    <LastWriteTime>2020-11-19T20:19:20.815685Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,7 +18,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimGeography.dtsx</Name>
-      <LastWriteTime>2020-11-18T17:37:20.8309227Z</LastWriteTime>
+      <LastWriteTime>2020-11-19T19:42:06.8615449Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DimDepartmentGroup.dtsx</Name>
+      <LastWriteTime>2020-11-19T20:19:20.795736Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
