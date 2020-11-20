@@ -28,7 +28,7 @@ Instead of writing join query in query analyser, Merge Join component is used to
 
 The data is populated from [HumanResources].[Department]. Distinct GroupName gives all the reference data for DimDepartmentGroup.
 
-#### Table 5 : dbo.DimOrganization
+#### Table 5 : dbo.DimCustomer
 
 
 
