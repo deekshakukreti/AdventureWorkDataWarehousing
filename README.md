@@ -30,6 +30,11 @@ The data is populated from [HumanResources].[Department]. Distinct GroupName giv
 
 #### Table 5 : dbo.DimCustomer
 
+The data is populated from various Adventurework Database tables and views. Merge Join component and Derived component are majorly used to design the loading of dbo.DimCustomer. 
+
+#### Table 6 : dbo.DimPromotion
+
+This table is populated from Sales.SpecialOffer which has only 16 records in the AdventureWork Database table. The destination has few derived columns and also consist of only 16 records in the dbo.DimPromotion.
 
 
 
