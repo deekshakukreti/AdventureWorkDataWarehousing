@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="DimCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{E1DC1677-0F11-4833-AD7F-50F762EF1B2D}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{71E51AE5-B18B-4163-A77C-4305109507BF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -489,7 +489,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
+                  name="EliminateDuplicates">true</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the maximum number of threads to use for sorting."
@@ -514,7 +514,7 @@
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
+                          name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -530,7 +530,7 @@
                         <property
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
+                          name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -547,8 +547,7 @@
                       refId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[BusinessEntityID]"
                       dataType="i4"
                       lineageId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[BusinessEntityID]"
-                      name="BusinessEntityID"
-                      sortKeyPosition="1">
+                      name="BusinessEntityID">
                       <properties>
                         <property
                           containsID="true"
@@ -561,243 +560,6 @@
                       refId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[AddressID]"
                       dataType="i4"
                       lineageId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[AddressID]"
-                      name="AddressID">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\BusinessEntityAddress.Outputs[OLE DB Source Output].Columns[AddressID]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load DimCustomer\AddressID_FK"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="AddressID_FK"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input]"
-                  name="Sort Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[AddressID]"
-                      cachedDataType="i4"
-                      cachedName="AddressID"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AddressID]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[Title]"
-                      cachedDataType="wstr"
-                      cachedLength="8"
-                      cachedName="Title"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Title]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[PhoneNumber]"
-                      cachedDataType="wstr"
-                      cachedLength="25"
-                      cachedName="PhoneNumber"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[PhoneNumber]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[FirstName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="FirstName"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[FirstName]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[MiddleName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="MiddleName"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[MiddleName]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[LastName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="LastName"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[LastName]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[BusinessEntityID]"
-                      cachedDataType="i4"
-                      cachedName="BusinessEntityID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[BusinessEntityID]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[NameStyle]"
-                      cachedDataType="bool"
-                      cachedName="NameStyle"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[NameStyle]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[Suffix]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Suffix"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Suffix]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[AccountNumber]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="AccountNumber"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AccountNumber]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input].Columns[EmailAddress]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="EmailAddress"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[EmailAddress]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output]"
-                  isSorted="true"
-                  name="Sort Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[AddressID]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[AddressID]"
                       name="AddressID"
                       sortKeyPosition="1">
                       <properties>
@@ -805,146 +567,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AddressID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[Title]"
-                      dataType="wstr"
-                      length="8"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[Title]"
-                      name="Title">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Title]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[PhoneNumber]"
-                      dataType="wstr"
-                      length="25"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[PhoneNumber]"
-                      name="PhoneNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[PhoneNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[FirstName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[FirstName]"
-                      name="FirstName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[FirstName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[MiddleName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[MiddleName]"
-                      name="MiddleName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[MiddleName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[LastName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[LastName]"
-                      name="LastName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[LastName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[BusinessEntityID]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[BusinessEntityID]"
-                      name="BusinessEntityID">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[BusinessEntityID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[NameStyle]"
-                      dataType="bool"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[NameStyle]"
-                      name="NameStyle">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[NameStyle]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[Suffix]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[Suffix]"
-                      name="Suffix">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Suffix]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[AccountNumber]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[AccountNumber]"
-                      name="AccountNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AccountNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[EmailAddress]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[EmailAddress]"
-                      name="EmailAddress">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[EmailAddress]}</property>
+                          name="SortColumnId">#{Package\Load DimCustomer\BusinessEntityAddress.Outputs[OLE DB Source Output].Columns[AddressID]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -963,7 +586,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
+                  name="EliminateDuplicates">true</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the maximum number of threads to use for sorting."
@@ -1928,7 +1551,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">false</property>
+                  name="EliminateDuplicates">true</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the maximum number of threads to use for sorting."
@@ -1945,7 +1568,7 @@
                       cachedDataType="wstr"
                       cachedLength="60"
                       cachedName="AddressLine1"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine1]">
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine1]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1962,92 +1585,7 @@
                       cachedDataType="wstr"
                       cachedLength="60"
                       cachedName="AddressLine2"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine2]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[Title]"
-                      cachedDataType="wstr"
-                      cachedLength="8"
-                      cachedName="Title"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Title]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[PhoneNumber]"
-                      cachedDataType="wstr"
-                      cachedLength="25"
-                      cachedName="PhoneNumber"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PhoneNumber]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[FirstName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="FirstName"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[FirstName]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[MiddleName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="MiddleName"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[MiddleName]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[LastName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="LastName"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[LastName]">
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine2]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2063,7 +1601,7 @@
                       refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[BusinessEntityID]"
                       cachedDataType="i4"
                       cachedName="BusinessEntityID"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[BusinessEntityID]">
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[BusinessEntityID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2076,79 +1614,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[NameStyle]"
-                      cachedDataType="bool"
-                      cachedName="NameStyle"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[NameStyle]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[Suffix]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Suffix"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Suffix]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[AccountNumber]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="AccountNumber"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AccountNumber]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[EmailAddress]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="EmailAddress"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[EmailAddress]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input].Columns[PostalCode]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="PostalCode"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PostalCode]">
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[PostalCode]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2165,7 +1635,7 @@
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="City"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[City]">
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[City]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2198,7 +1668,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine1]}</property>
+                          name="SortColumnId">#{Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine1]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2212,77 +1682,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine2]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[Title]"
-                      dataType="wstr"
-                      length="8"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[Title]"
-                      name="Title">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Title]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[PhoneNumber]"
-                      dataType="wstr"
-                      length="25"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[PhoneNumber]"
-                      name="PhoneNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PhoneNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[FirstName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[FirstName]"
-                      name="FirstName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[FirstName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[MiddleName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[MiddleName]"
-                      name="MiddleName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[MiddleName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[LastName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[LastName]"
-                      name="LastName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[LastName]}</property>
+                          name="SortColumnId">#{Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine2]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2296,63 +1696,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[BusinessEntityID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[NameStyle]"
-                      dataType="bool"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[NameStyle]"
-                      name="NameStyle">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[NameStyle]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[Suffix]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[Suffix]"
-                      name="Suffix">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Suffix]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[AccountNumber]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[AccountNumber]"
-                      name="AccountNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AccountNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[EmailAddress]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[EmailAddress]"
-                      name="EmailAddress">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[EmailAddress]}</property>
+                          name="SortColumnId">#{Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[BusinessEntityID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2366,7 +1710,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PostalCode]}</property>
+                          name="SortColumnId">#{Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[PostalCode]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2380,7 +1724,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[City]}</property>
+                          name="SortColumnId">#{Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[City]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2533,55 +1877,6 @@
                       dataType="i4"
                       lineageId="Package\Load DimCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[PersonID]"
                       name="PersonID" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load DimCustomer\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2914,350 +2209,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\Load DimCustomer\Merge Address"
-              componentClassID="Microsoft.MergeJoin"
-              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
-              name="Merge Address"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of join to perform."
-                  name="JoinType"
-                  typeConverter="JoinType">2</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">1</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the null values are treated as equal values."
-                  name="TreatNullsAsEqual">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Indicates the requested maximum buffers per input before blocking."
-                  name="MaxBuffersPerInput">5</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Left Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[AddressID]"
-                      cachedDataType="i4"
-                      cachedName="AddressID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[AddressID]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[Title]"
-                      cachedDataType="wstr"
-                      cachedLength="8"
-                      cachedName="Title"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[Title]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[PhoneNumber]"
-                      cachedDataType="wstr"
-                      cachedLength="25"
-                      cachedName="PhoneNumber"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[PhoneNumber]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[FirstName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="FirstName"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[FirstName]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[MiddleName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="MiddleName"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[MiddleName]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[LastName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="LastName"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[LastName]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[BusinessEntityID]"
-                      cachedDataType="i4"
-                      cachedName="BusinessEntityID"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[BusinessEntityID]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[NameStyle]"
-                      cachedDataType="bool"
-                      cachedName="NameStyle"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[NameStyle]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[Suffix]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Suffix"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[Suffix]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[AccountNumber]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="AccountNumber"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[AccountNumber]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[EmailAddress]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="EmailAddress"
-                      lineageId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output].Columns[EmailAddress]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Right Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[AddressID]"
-                      cachedDataType="i4"
-                      cachedName="AddressID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[AddressID]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[AddressLine1]"
-                      cachedDataType="wstr"
-                      cachedLength="60"
-                      cachedName="AddressLine1"
-                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[AddressLine1]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[AddressLine2]"
-                      cachedDataType="wstr"
-                      cachedLength="60"
-                      cachedName="AddressLine2"
-                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[AddressLine2]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[PostalCode]"
-                      cachedDataType="wstr"
-                      cachedLength="15"
-                      cachedName="PostalCode"
-                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[PostalCode]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[City]"
-                      cachedDataType="wstr"
-                      cachedLength="30"
-                      cachedName="City"
-                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[City]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output]"
-                  name="Merge Join Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine1]"
-                      dataType="wstr"
-                      length="60"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine1]"
-                      name="AddressLine1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[AddressLine1]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine2]"
-                      dataType="wstr"
-                      length="60"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AddressLine2]"
-                      name="AddressLine2">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[AddressLine2]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Title]"
-                      dataType="wstr"
-                      length="8"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Title]"
-                      name="Title">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[Title]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PhoneNumber]"
-                      dataType="wstr"
-                      length="25"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PhoneNumber]"
-                      name="PhoneNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[PhoneNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[FirstName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[FirstName]"
-                      name="FirstName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[FirstName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[MiddleName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[MiddleName]"
-                      name="MiddleName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[MiddleName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[LastName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[LastName]"
-                      name="LastName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[LastName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[BusinessEntityID]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[BusinessEntityID]"
-                      name="BusinessEntityID">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[BusinessEntityID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[NameStyle]"
-                      dataType="bool"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[NameStyle]"
-                      name="NameStyle">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[NameStyle]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Suffix]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[Suffix]"
-                      name="Suffix">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[Suffix]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AccountNumber]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[AccountNumber]"
-                      name="AccountNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[AccountNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[EmailAddress]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[EmailAddress]"
-                      name="EmailAddress">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input].Columns[EmailAddress]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PostalCode]"
-                      dataType="wstr"
-                      length="15"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[PostalCode]"
-                      name="PostalCode">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[PostalCode]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[City]"
-                      dataType="wstr"
-                      length="30"
-                      lineageId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output].Columns[City]"
-                      name="City">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input].Columns[City]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Load DimCustomer\Merge GeographyKey"
               componentClassID="Microsoft.MergeJoin"
               contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -3468,21 +2419,9 @@
               <outputs>
                 <output
                   refId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output]"
+                  isSorted="true"
                   name="Merge Join Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[GeographyKey]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[GeographyKey]"
-                      name="GeographyKey">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Right Input].Columns[GeographyKey]}</property>
-                      </properties>
-                    </outputColumn>
                     <outputColumn
                       refId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[AddressLine1]"
                       dataType="wstr"
@@ -3798,6 +2737,49 @@
                           name="InputColumnID">#{Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Left Input].Columns[NumberCarsOwned]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Left Input].Columns[PostalCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[City]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[City]"
+                      name="City"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Left Input].Columns[City]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[GeographyKey]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[GeographyKey]"
+                      name="GeographyKey">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Right Input].Columns[GeographyKey]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4025,6 +3007,170 @@
               </outputs>
             </component>
             <component
+              refId="Package\Load DimCustomer\Merge Join 1"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[AddressID]"
+                      cachedDataType="i4"
+                      cachedName="AddressID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[AddressID]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine1"
+                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine2"
+                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="City"
+                      lineageId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output].Columns[City]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Right Input].Columns[AddressID]"
+                      cachedDataType="i4"
+                      cachedName="AddressID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[AddressID]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Right Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      lineageId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[BusinessEntityID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Right Input].Columns[BusinessEntityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine1]"
+                      name="AddressLine1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[AddressLine1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[AddressLine2]"
+                      name="AddressLine2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[AddressLine2]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[PostalCode]"
+                      name="PostalCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[PostalCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[City]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output].Columns[City]"
+                      name="City">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input].Columns[City]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load DimCustomer\Merge Person Demographics"
               componentClassID="Microsoft.MergeJoin"
               contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -4061,85 +3207,85 @@
                       cachedDataType="i4"
                       cachedName="BusinessEntityID"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[BusinessEntityID]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[BusinessEntityID]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[AddressLine1]"
                       cachedDataType="wstr"
                       cachedLength="60"
                       cachedName="AddressLine1"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[AddressLine1]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AddressLine1]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[AddressLine2]"
                       cachedDataType="wstr"
                       cachedLength="60"
                       cachedName="AddressLine2"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[AddressLine2]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AddressLine2]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[Title]"
                       cachedDataType="wstr"
                       cachedLength="8"
                       cachedName="Title"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[Title]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[Title]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[PhoneNumber]"
                       cachedDataType="wstr"
                       cachedLength="25"
                       cachedName="PhoneNumber"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[PhoneNumber]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[PhoneNumber]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[FirstName]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="FirstName"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[FirstName]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[FirstName]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[MiddleName]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="MiddleName"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[MiddleName]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[MiddleName]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[LastName]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="LastName"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[LastName]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[LastName]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[NameStyle]"
                       cachedDataType="bool"
                       cachedName="NameStyle"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[NameStyle]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[NameStyle]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[Suffix]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Suffix"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[Suffix]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[Suffix]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[AccountNumber]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="AccountNumber"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[AccountNumber]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AccountNumber]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[EmailAddress]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="EmailAddress"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[EmailAddress]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[EmailAddress]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[PostalCode]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="PostalCode"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[PostalCode]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[PostalCode]" />
                     <inputColumn
                       refId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input].Columns[City]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="City"
-                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[City]" />
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[City]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4574,6 +3720,347 @@
               </outputs>
             </component>
             <component
+              refId="Package\Load DimCustomer\MergeAddress"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="MergeAddress"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[PhoneNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="PhoneNumber"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[PhoneNumber]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[NameStyle]"
+                      cachedDataType="bool"
+                      cachedName="NameStyle"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[NameStyle]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[Suffix]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Suffix"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[Suffix]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[AccountNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="AccountNumber"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[AccountNumber]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[EmailAddress]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine1"
+                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine2"
+                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="City"
+                      lineageId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output].Columns[City]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[Title]"
+                      name="Title">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[Title]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[PhoneNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[PhoneNumber]"
+                      name="PhoneNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[PhoneNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[MiddleName]"
+                      name="MiddleName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[MiddleName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[BusinessEntityID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[NameStyle]"
+                      dataType="bool"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[NameStyle]"
+                      name="NameStyle">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[NameStyle]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[Suffix]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[Suffix]"
+                      name="Suffix">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[Suffix]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AccountNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AccountNumber]"
+                      name="AccountNumber">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[AccountNumber]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[EmailAddress]"
+                      name="EmailAddress">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input].Columns[EmailAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AddressLine1]"
+                      name="AddressLine1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[AddressLine1]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[AddressLine2]"
+                      name="AddressLine2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[AddressLine2]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[PostalCode]"
+                      name="PostalCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[PostalCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[City]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output].Columns[City]"
+                      name="City">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input].Columns[City]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load DimCustomer\MergePhoneNumber"
               componentClassID="Microsoft.MergeJoin"
               contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -4827,285 +4314,6 @@
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Load DimCustomer\MergePhoneNumber.Inputs[Merge Join Left Input].Columns[EmailAddress]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load DimCustomer\MergerAddressID"
-              componentClassID="Microsoft.MergeJoin"
-              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
-              name="MergerAddressID"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of join to perform."
-                  name="JoinType"
-                  typeConverter="JoinType">2</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">1</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the null values are treated as equal values."
-                  name="TreatNullsAsEqual">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Indicates the requested maximum buffers per input before blocking."
-                  name="MaxBuffersPerInput">5</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Left Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[BusinessEntityID]"
-                      cachedDataType="i4"
-                      cachedName="BusinessEntityID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[BusinessEntityID]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[Title]"
-                      cachedDataType="wstr"
-                      cachedLength="8"
-                      cachedName="Title"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[Title]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[PhoneNumber]"
-                      cachedDataType="wstr"
-                      cachedLength="25"
-                      cachedName="PhoneNumber"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[PhoneNumber]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[FirstName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="FirstName"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[FirstName]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[MiddleName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="MiddleName"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[MiddleName]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[LastName]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="LastName"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[LastName]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[NameStyle]"
-                      cachedDataType="bool"
-                      cachedName="NameStyle"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[NameStyle]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[Suffix]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Suffix"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[Suffix]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[AccountNumber]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="AccountNumber"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[AccountNumber]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[EmailAddress]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="EmailAddress"
-                      lineageId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output].Columns[EmailAddress]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Right Input]"
-                  hasSideEffects="true"
-                  name="Merge Join Right Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Right Input].Columns[BusinessEntityID]"
-                      cachedDataType="i4"
-                      cachedName="BusinessEntityID"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[BusinessEntityID]" />
-                    <inputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Right Input].Columns[AddressID]"
-                      cachedDataType="i4"
-                      cachedName="AddressID"
-                      lineageId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output].Columns[AddressID]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output]"
-                  isSorted="true"
-                  name="Merge Join Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AddressID]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AddressID]"
-                      name="AddressID">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Right Input].Columns[AddressID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Title]"
-                      dataType="wstr"
-                      length="8"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Title]"
-                      name="Title">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[Title]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[PhoneNumber]"
-                      dataType="wstr"
-                      length="25"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[PhoneNumber]"
-                      name="PhoneNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[PhoneNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[FirstName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[FirstName]"
-                      name="FirstName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[FirstName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[MiddleName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[MiddleName]"
-                      name="MiddleName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[MiddleName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[LastName]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[LastName]"
-                      name="LastName">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[LastName]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[BusinessEntityID]"
-                      dataType="i4"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[BusinessEntityID]"
-                      name="BusinessEntityID"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[BusinessEntityID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[NameStyle]"
-                      dataType="bool"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[NameStyle]"
-                      name="NameStyle">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[NameStyle]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Suffix]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[Suffix]"
-                      name="Suffix">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[Suffix]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AccountNumber]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[AccountNumber]"
-                      name="AccountNumber">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[AccountNumber]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[EmailAddress]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output].Columns[EmailAddress]"
-                      name="EmailAddress">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input].Columns[EmailAddress]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -6515,7 +5723,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">true</property>
+                  name="EliminateDuplicates">false</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the maximum number of threads to use for sorting."
@@ -7359,24 +6567,24 @@
           <paths>
             <path
               refId="Package\Load DimCustomer.Paths[Merge Join Output]"
-              endId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input]"
               name="Merge Join Output"
-              startId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output]" />
+              startId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Merge Join Output1]"
+              endId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input]"
+              name="Merge Join Output"
+              startId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[Merge Join Output2]"
+              endId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input]"
+              name="Merge Join Output"
+              startId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[Merge Join Output3]"
               endId="Package\Load DimCustomer\PostalCodeCity_FK.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\Merge Person Demographics.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output2]"
-              endId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\Load DimCustomer\Merge Address.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output3]"
-              endId="Package\Load DimCustomer\AddressID_FK.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\Load DimCustomer\MergerAddressID.Outputs[Merge Join Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Merge Join Output4]"
               endId="Package\Load DimCustomer\BusinessEntityID_FK.Inputs[Sort Input]"
@@ -7384,11 +6592,6 @@
               startId="Package\Load DimCustomer\Merge Join.Outputs[Merge Join Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Merge Join Output5]"
-              endId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Left Input]"
-              name="Merge Join Output"
-              startId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output6]"
               endId="Package\Load DimCustomer\MergePhoneNumber.Inputs[Merge Join Left Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\AddEMailAddress.Outputs[Merge Join Output]" />
@@ -7404,9 +6607,9 @@
               startId="Package\Load DimCustomer\PhoneNumber.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[OLE DB Source Output4]"
-              endId="Package\Load DimCustomer\PersonID_FK.Inputs[Sort Input]"
+              endId="Package\Load DimCustomer\AddressID_PK.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\Load DimCustomer\Customer.Outputs[OLE DB Source Output]" />
+              startId="Package\Load DimCustomer\Address.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[OLE DB Source Output6]"
               endId="Package\Load DimCustomer\BusinessEntityIDEmail_PK.Inputs[Sort Input]"
@@ -7414,34 +6617,34 @@
               startId="Package\Load DimCustomer\EmailAddress.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[OLE DB Source Output2]"
-              endId="Package\Load DimCustomer\AddressID_PK.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load DimCustomer\Address.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
               endId="Package\Load DimCustomer\vBusinessID_PK.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomer\vPersonDemographics.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output]"
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
               endId="Package\Load DimCustomer\Sort PostalCode City.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomer\DimGeography.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output]"
+              endId="Package\Load DimCustomer\PersonID_FK.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimCustomer\Customer.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[OLE DB Source Output3]"
               endId="Package\Load DimCustomer\AddressBE_PK.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomer\BusinessEntityAddress.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Sort Output10]"
+              refId="Package\Load DimCustomer.Paths[Sort Output9]"
               endId="Package\Load DimCustomer\MergePhoneNumber.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Load DimCustomer\PhoneBusinessEntity_PK.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output]"
-              endId="Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Right Input]"
+              endId="Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\Load DimCustomer\Sort PostalCode City.Outputs[Sort Output]" />
+              startId="Package\Load DimCustomer\PostalCodeCity_FK.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output1]"
               endId="Package\Load DimCustomer\AddEMailAddress.Inputs[Merge Join Left Input]"
@@ -7454,14 +6657,14 @@
               startId="Package\Load DimCustomer\BusinessEntityIDEmail_PK.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output3]"
-              endId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\Load DimCustomer\AddressID_FK.Outputs[Sort Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[Sort Output4]"
-              endId="Package\Load DimCustomer\Merge Address.Inputs[Merge Join Right Input]"
+              endId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Load DimCustomer\AddressID_PK.Outputs[Sort Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[Sort Output4]"
+              endId="Package\Load DimCustomer\Merge Join 1.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output5]"
               endId="Package\Load DimCustomer\Merge Join.Inputs[Merge Join Right Input]"
@@ -7469,29 +6672,24 @@
               startId="Package\Load DimCustomer\BusinessEntityID_PK.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output6]"
-              endId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input]"
+              endId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Load DimCustomer\BusinessID_Sort.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output7]"
-              endId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\Load DimCustomer\vBusinessID_PK.Outputs[Sort Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[Sort Output8]"
               endId="Package\Load DimCustomer\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Load DimCustomer\PersonID_FK.Outputs[Sort Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Sort Output9]"
-              endId="Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Left Input]"
+              refId="Package\Load DimCustomer.Paths[Sort Output8]"
+              endId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\Load DimCustomer\PostalCodeCity_FK.Outputs[Sort Output]" />
+              startId="Package\Load DimCustomer\vBusinessID_PK.Outputs[Sort Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Sort Output11]"
-              endId="Package\Load DimCustomer\MergerAddressID.Inputs[Merge Join Right Input]"
+              refId="Package\Load DimCustomer.Paths[Sort Output10]"
+              endId="Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\Load DimCustomer\AddressBE_PK.Outputs[Sort Output]" />
+              startId="Package\Load DimCustomer\Sort PostalCode City.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -7534,7 +6732,7 @@
           Id="Package\Load DimCustomer\PersonID_FK"
           TopLeft="276.249995883554,31.2499999418855" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output4]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output]"
           TopLeft="193.874998034909,28">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7610,7 +6808,7 @@
           Id="Package\Load DimCustomer\Merge Join"
           TopLeft="529.999992102385,33.1999999070168" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output8]"
+          Id="Package\Load DimCustomer.Paths[Sort Output7]"
           TopLeft="416.249995883554,53.5583332577845">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7820,14 +7018,14 @@
           Id="Package\Load DimCustomer\MergePhoneNumber"
           TopLeft="495.624992614612,269.366662505667" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output6]"
+          Id="Package\Load DimCustomer.Paths[Merge Join Output5]"
           TopLeft="596.874992297962,236.416663702826">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.7500003166498,32.9499988028408"
+              EndConnector="14.7500003166497,32.9499988028408"
               Start="0,0"
-              End="14.7500003166498,25.4499988028408">
+              End="14.7500003166497,25.4499988028408">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7838,13 +7036,13 @@
                     Point2="0,19.5918911800675"
                     Point3="4,19.5918911800675" />
                   <mssgle:LineSegment
-                    End="10.7500003166498,19.5918911800675" />
+                    End="10.7500003166497,19.5918911800675" />
                   <mssgle:CubicBezierSegment
-                    Point1="10.7500003166498,19.5918911800675"
-                    Point2="14.7500003166498,19.5918911800675"
-                    Point3="14.7500003166498,23.5918911800675" />
+                    Point1="10.7500003166497,19.5918911800675"
+                    Point2="14.7500003166497,19.5918911800675"
+                    Point3="14.7500003166497,23.5918911800675" />
                   <mssgle:LineSegment
-                    End="14.7500003166498,25.4499988028408" />
+                    End="14.7500003166497,25.4499988028408" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7854,14 +7052,14 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output10]"
+          Id="Package\Load DimCustomer.Paths[Sort Output9]"
           TopLeft="390.458328965431,264.133329242071">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="165.166663649182,5.23333326359585"
+              EndConnector="165.166663649181,5.23333326359585"
               Start="0,0"
-              End="165.166663649182,-2.26666673640415">
+              End="165.166663649181,-2.26666673640415">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -7872,13 +7070,13 @@
                     Point2="0,-22.5"
                     Point3="4,-22.5" />
                   <mssgle:LineSegment
-                    End="161.166663649182,-22.5" />
+                    End="161.166663649181,-22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="161.166663649182,-22.5"
-                    Point2="165.166663649182,-22.5"
-                    Point3="165.166663649182,-18.5" />
+                    Point1="161.166663649181,-22.5"
+                    Point2="165.166663649181,-22.5"
+                    Point3="165.166663649181,-18.5" />
                   <mssgle:LineSegment
-                    End="165.166663649182,-2.26666673640415" />
+                    End="165.166663649181,-2.26666673640415" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7892,107 +7090,23 @@
           Id="Package\Load DimCustomer\BusinessEntityAddress"
           TopLeft="94.3749985937028,327.683328463336" />
         <NodeLayout
-          Size="146.666666666667,42.6666666666667"
+          Size="130,42.6666666666667"
           Id="Package\Load DimCustomer\AddressBE_PK"
-          TopLeft="302.499995492399,319.416662540535" />
+          TopLeft="308.749995399267,330.249995680153" />
         <EdgeLayout
           Id="Package\Load DimCustomer.Paths[OLE DB Source Output3]"
-          TopLeft="263.708331927036,349.016661796669">
+          TopLeft="263.708331927036,350.299995405078">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.7916635653627,-8.26666592280071"
+              EndConnector="45.0416634722304,0"
               Start="0,0"
-              End="31.2916635653627,-8.26666592280071">
+              End="37.5416634722304,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="15.3958317826813,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.3958317826813,0"
-                    Point2="19.3958317826813,0"
-                    Point3="19.3958317826813,-4" />
-                  <mssgle:LineSegment
-                    End="19.3958317826813,-4.26666592280071" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.3958317826813,-4.26666592280071"
-                    Point2="19.3958317826813,-8.26666592280071"
-                    Point3="23.3958317826813,-8.26666592280071" />
-                  <mssgle:LineSegment
-                    End="31.2916635653627,-8.26666592280071" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="161.333333333334,42.6666666666667"
-          Id="Package\Load DimCustomer\MergerAddressID"
-          TopLeft="501.249992530793,333.049996547997" />
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output5]"
-          TopLeft="671.624992614612,290.699995839">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.04166675048566,63.6833340423306"
-              Start="0,0"
-              End="-1.54166675048566,63.6833340423306">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,59.6833340423306" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,59.6833340423306"
-                    Point2="22.5,63.6833340423306"
-                    Point3="18.5,63.6833340423306" />
-                  <mssgle:LineSegment
-                    End="-1.54166675048566,63.6833340423306" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output11]"
-          TopLeft="449.166662159065,340.749995873869">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.0833303717277,13.6333340074619"
-              Start="0,0"
-              End="44.5833303717277,13.6333340074619">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="22.0416651858638,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.0416651858638,0"
-                    Point2="26.0416651858638,0"
-                    Point3="26.0416651858638,4" />
-                  <mssgle:LineSegment
-                    End="26.0416651858638,9.63333400746194" />
-                  <mssgle:CubicBezierSegment
-                    Point1="26.0416651858638,9.63333400746194"
-                    Point2="26.0416651858638,13.6333340074619"
-                    Point3="30.0416651858638,13.6333340074619" />
-                  <mssgle:LineSegment
-                    End="44.5833303717277,13.6333340074619" />
+                    End="37.5416634722304,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8010,7 +7124,7 @@
           Id="Package\Load DimCustomer\AddressID_PK"
           TopLeft="304.999996051192,391.983329602381" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output2]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output4]"
           TopLeft="216.79166520449,412.191662616084">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8032,137 +7146,27 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="145.333333333334,42.6666666666667"
-          Id="Package\Load DimCustomer\AddressID_FK"
-          TopLeft="499.999993145466,396.566662877599" />
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output3]"
-          TopLeft="662.583325864126,360.161107659108">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17.249999385327,57.7388885518245"
-              Start="0,0"
-              End="-9.74999938532699,57.7388885518245">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,53.7388885518245" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,53.7388885518245"
-                    Point2="22.5,57.7388885518245"
-                    Point3="18.5,57.7388885518245" />
-                  <mssgle:LineSegment
-                    End="-9.74999938532699,57.7388885518245" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="149.333333333334,42.6666666666667"
-          Id="Package\Load DimCustomer\Merge Address"
-          TopLeft="496.249993201345,468.016662029127" />
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output3]"
-          TopLeft="572.666659812133,439.233329544266">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21.8055556114348,28.7833324848613"
-              Start="0,0"
-              End="21.8055556114348,21.2833324848613">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.0869252913664" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.0869252913664"
-                    Point2="0,17.0869252913664"
-                    Point3="4,17.0869252913664" />
-                  <mssgle:LineSegment
-                    End="17.8055556114348,17.0869252913664" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.8055556114348,17.0869252913664"
-                    Point2="21.8055556114348,17.0869252913664"
-                    Point3="21.8055556114348,21.0869252913664" />
-                  <mssgle:LineSegment
-                    End="21.8055556114348,21.2833324848613" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output4]"
-          TopLeft="378.333329384526,434.649996269047">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="169.027774927931,33.3666657600799"
-              Start="0,0"
-              End="169.027774927931,25.8666657600799">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.8077733134043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.8077733134043"
-                    Point2="0,19.8077733134043"
-                    Point3="4,19.8077733134043" />
-                  <mssgle:LineSegment
-                    End="165.027774927931,19.8077733134043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="165.027774927931,19.8077733134043"
-                    Point2="169.027774927931,19.8077733134043"
-                    Point3="169.027774927931,23.8077733134043" />
-                  <mssgle:LineSegment
-                    End="169.027774927931,25.8666657600799" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="184,42.6666666666667"
           Id="Package\Load DimCustomer\vPersonDemographics"
-          TopLeft="65.6249996181578,560.333328451713" />
+          TopLeft="74.6527772614112,584.166661358873" />
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Load DimCustomer\vBusinessID_PK"
-          TopLeft="298.749996144325,561.299995792508" />
+          TopLeft="302.222218314807,585.855550908976" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
-          TopLeft="249.624999618158,582.149995455444">
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output2]"
+          TopLeft="258.652777261411,606.344439467258">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49.1249965261668,0"
+              EndConnector="43.5694410533955,0"
               Start="0,0"
-              End="41.6249965261668,0">
+              End="36.0694410533955,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="41.6249965261668,0" />
+                    End="36.0694410533955,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8174,113 +7178,11 @@
         <NodeLayout
           Size="156,42.6666666666667"
           Id="Package\Load DimCustomer\BusinessID_Sort"
-          TopLeft="501.874993117526,536.599996699095" />
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output2]"
-          TopLeft="570.916659868012,510.683328695794">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8.95833324951445,25.9166680033009"
-              Start="0,0"
-              End="8.95833324951445,18.4166680033009">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,8.95833400165043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.95833400165043"
-                    Point2="0,12.9583340016504"
-                    Point3="4,12.9583340016504" />
-                  <mssgle:LineSegment
-                    End="4.95833324951445,12.9583340016504" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.95833324951445,12.9583340016504"
-                    Point2="8.95833324951445,12.9583340016504"
-                    Point3="8.95833324951445,16.9583340016504" />
-                  <mssgle:LineSegment
-                    End="8.95833324951445,18.4166680033009" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="499.097215381141,425.377776465681" />
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\Load DimCustomer\Merge Person Demographics"
-          TopLeft="480.925918847875,612.185180251907" />
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output6]"
-          TopLeft="579.874993117526,579.266663365761">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8.3842590636815,32.918516886146"
-              Start="0,0"
-              End="8.3842590636815,25.418516886146">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.459258443073" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.459258443073"
-                    Point2="0,16.459258443073"
-                    Point3="4,16.459258443073" />
-                  <mssgle:LineSegment
-                    End="4.3842590636815,16.459258443073" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.3842590636815,16.459258443073"
-                    Point2="8.3842590636815,16.459258443073"
-                    Point3="8.3842590636815,20.459258443073" />
-                  <mssgle:LineSegment
-                    End="8.3842590636815,25.418516886146" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output7]"
-          TopLeft="453.416662810991,582.633329125842">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.5092560368833,50.8851844593993"
-              Start="0,0"
-              End="20.0092560368833,50.8851844593993">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="9.75462801844165,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.75462801844165,0"
-                    Point2="13.7546280184417,0"
-                    Point3="13.7546280184417,4" />
-                  <mssgle:LineSegment
-                    End="13.7546280184417,46.8851844593993" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.7546280184417,46.8851844593993"
-                    Point2="13.7546280184417,50.8851844593993"
-                    Point3="17.7546280184417,50.8851844593993" />
-                  <mssgle:LineSegment
-                    End="20.0092560368833,50.8851844593993" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="473.287030072814,587.629625135439" />
         <NodeLayout
           Size="149.333333333334,42.6666666666667"
           Id="Package\Load DimCustomer\DimGeography"
@@ -8290,7 +7192,7 @@
           Id="Package\Load DimCustomer\Sort PostalCode City"
           TopLeft="242.777774259448,660.777773671018" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
           TopLeft="199.055554913978,682.712958501059">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -8314,21 +7216,267 @@
         <NodeLayout
           Size="166.666666666667,42.6666666666667"
           Id="Package\Load DimCustomer\PostalCodeCity_FK"
-          TopLeft="510.833325820665,679.833329084516" />
+          TopLeft="453.194437790662,679.111106875208" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output1]"
-          TopLeft="591.212955667603,654.851846918574">
+          Id="Package\Load DimCustomer.Paths[Merge Join Output3]"
+          TopLeft="580.620363406147,630.296291802106">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,24.9814821659415"
+              EndConnector="-44.0925922821519,48.8148150731016"
               Start="0,0"
-              End="0,17.4814821659415">
+              End="-44.0925922821519,41.3148150731016">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.4814821659415" />
+                    End="0,20.4074075365508" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4074075365508"
+                    Point2="0,24.4074075365508"
+                    Point3="-4,24.4074075365508" />
+                  <mssgle:LineSegment
+                    End="-40.0925922821519,24.4074075365508" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.0925922821519,24.4074075365508"
+                    Point2="-44.0925922821519,24.4074075365508"
+                    Point3="-44.0925922821519,28.4074075365508" />
+                  <mssgle:LineSegment
+                    End="-44.0925922821519,41.3148150731016" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="140,42.6666666666667"
+          Id="Package\Load DimCustomer\Merge Join 1"
+          TopLeft="496.435178096786,353.611109755105" />
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Sort Output3]"
+          TopLeft="451.666662717859,413.316662935714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.7685153789267,-38.3722198472752"
+              Start="0,0"
+              End="37.2685153789267,-38.3722198472752">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.3842576894634,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.3842576894634,0"
+                    Point2="22.3842576894634,0"
+                    Point3="22.3842576894634,-4" />
+                  <mssgle:LineSegment
+                    End="22.3842576894634,-34.3722198472752" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.3842576894634,-34.3722198472752"
+                    Point2="22.3842576894634,-38.3722198472752"
+                    Point3="26.3842576894634,-38.3722198472752" />
+                  <mssgle:LineSegment
+                    End="37.2685153789267,-38.3722198472752" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Sort Output4]"
+          TopLeft="438.749995399267,351.583329013487">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.6851826975191,17.5833362971742"
+              Start="0,0"
+              End="50.1851826975191,17.5833362971742">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.3601056563966,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.3601056563966,0"
+                    Point2="33.3601056563966,0"
+                    Point3="33.3601056563966,4" />
+                  <mssgle:LineSegment
+                    End="33.3601056563966,13.5833362971742" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.3601056563966,13.5833362971742"
+                    Point2="33.3601056563966,17.5833362971742"
+                    Point3="37.3601056563966,17.5833362971742" />
+                  <mssgle:LineSegment
+                    End="50.1851826975191,17.5833362971742" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Load DimCustomer\MergeAddress"
+          TopLeft="503.79628903198,494.962958933689" />
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Merge Join Output2]"
+          TopLeft="583.624992614612,312.033329172333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.6157408618128,182.929629761356"
+              Start="0,0"
+              End="16.6157408618128,175.429629761356">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.573341405121" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,104.573341405121"
+                    Point2="0,108.573341405121"
+                    Point3="4,108.573341405121" />
+                  <mssgle:LineSegment
+                    End="12.6157408618128,108.573341405121" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.6157408618128,108.573341405121"
+                    Point2="16.6157408618128,108.573341405121"
+                    Point3="16.6157408618128,112.573341405121" />
+                  <mssgle:LineSegment
+                    End="16.6157408618128,175.429629761356" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Sort Output6]"
+          TopLeft="577.097215381141,468.044443132348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.0787041269382,26.9185158013415"
+              Start="0,0"
+              End="-23.0787041269382,19.4185158013415">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.9768169324509" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.9768169324509"
+                    Point2="0,15.9768169324509"
+                    Point3="-4,15.9768169324509" />
+                  <mssgle:LineSegment
+                    End="-19.0787041269382,15.9768169324509" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.0787041269382,15.9768169324509"
+                    Point2="-23.0787041269382,15.9768169324509"
+                    Point3="-23.0787041269382,19.9768169324509" />
+                  <mssgle:LineSegment
+                    End="-23.0787041269382,19.4185158013415" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Merge Join Output1]"
+          TopLeft="578.874992885731,537.629625600356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.9999995350836"
+              Start="0,0"
+              End="0,42.4999995350836">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4999995350836" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Sort Output8]"
+          TopLeft="379.55555164814,585.855550908976">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.620367313563,1.77407422646331"
+              Start="0,0"
+              End="166.620367313563,-5.72592577353669">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-18.5"
+                    Point2="0,-22.5"
+                    Point3="4,-22.5" />
+                  <mssgle:LineSegment
+                    End="162.620367313563,-22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.620367313563,-22.5"
+                    Point2="166.620367313563,-22.5"
+                    Point3="166.620367313563,-18.5" />
+                  <mssgle:LineSegment
+                    End="166.620367313563,-5.72592577353669" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Merge Join Output]"
+          TopLeft="566.435178096786,396.277776421772">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.6620372843552,29.1000000439087"
+              Start="0,0"
+              End="10.6620372843552,21.6000000439087">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5500000219544" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5500000219544"
+                    Point2="0,14.5500000219544"
+                    Point3="4,14.5500000219544" />
+                  <mssgle:LineSegment
+                    End="6.66203728435517,14.5500000219544" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.66203728435517,14.5500000219544"
+                    Point2="10.6620372843552,14.5500000219544"
+                    Point3="10.6620372843552,18.5500000219544" />
+                  <mssgle:LineSegment
+                    End="10.6620372843552,21.6000000439087" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8340,33 +7488,33 @@
         <NodeLayout
           Size="180,42.6666666666667"
           Id="Package\Load DimCustomer\Merge GeographyKey"
-          TopLeft="489.999992797772,754.574068740452" />
+          TopLeft="456.249993201345,753.759252324259" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output9]"
-          TopLeft="594.166659153998,722.499995751182">
+          Id="Package\Load DimCustomer.Paths[Sort Output]"
+          TopLeft="536.527771123995,721.777773541874">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-14.1666663562258,32.0740729892696"
+              EndConnector="9.72222207735001,31.9814787823847"
               Start="0,0"
-              End="-14.1666663562258,24.5740729892696">
+              End="9.72222207735001,24.4814787823847">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.0370364946348" />
+                    End="0,11.9907393911923" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.0370364946348"
-                    Point2="0,16.0370364946348"
-                    Point3="-4,16.0370364946348" />
+                    Point1="0,11.9907393911923"
+                    Point2="0,15.9907393911923"
+                    Point3="4,15.9907393911923" />
                   <mssgle:LineSegment
-                    End="-10.1666663562258,16.0370364946348" />
+                    End="5.72222207735001,15.9907393911923" />
                   <mssgle:CubicBezierSegment
-                    Point1="-10.1666663562258,16.0370364946348"
-                    Point2="-14.1666663562258,16.0370364946348"
-                    Point3="-14.1666663562258,20.0370364946348" />
+                    Point1="5.72222207735001,15.9907393911923"
+                    Point2="9.72222207735001,15.9907393911923"
+                    Point3="9.72222207735001,19.9907393911923" />
                   <mssgle:LineSegment
-                    End="-14.1666663562258,24.5740729892696" />
+                    End="9.72222207735001,24.4814787823847" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8376,65 +7524,37 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output]"
+          Id="Package\Load DimCustomer.Paths[Sort Output10]"
           TopLeft="330.111107592781,703.444440337684">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="221.222218538324,51.1296284027674"
+              EndConnector="187.472218941897,50.3148119865745"
               Start="0,0"
-              End="221.222218538324,43.6296284027674">
+              End="187.472218941897,42.8148119865745">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.4074882571524" />
+                    End="0,25.9229058069936" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.4074882571524"
-                    Point2="0,30.4074882571524"
-                    Point3="4,30.4074882571524" />
+                    Point1="0,25.9229058069936"
+                    Point2="0,29.9229058069936"
+                    Point3="4,29.9229058069936" />
                   <mssgle:LineSegment
-                    End="217.222218538324,30.4074882571524" />
+                    End="183.472218941897,29.9229058069936" />
                   <mssgle:CubicBezierSegment
-                    Point1="217.222218538324,30.4074882571524"
-                    Point2="221.222218538324,30.4074882571524"
-                    Point3="221.222218538324,34.4074882571524" />
+                    Point1="183.472218941897,29.9229058069936"
+                    Point2="187.472218941897,29.9229058069936"
+                    Point3="187.472218941897,33.9229058069936" />
                   <mssgle:LineSegment
-                    End="221.222218538324,43.6296284027674" />
+                    End="187.472218941897,42.8148119865745" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Load DimCustomer\Derived Column"
-          TopLeft="500.416659309218,824.148142775783" />
-        <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output]"
-          TopLeft="578.874992720162,797.240735407118">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.9074073686646"
-              Start="0,0"
-              End="0,19.4074073686646">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.4074073686646" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,1.70370368433231,16,16"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

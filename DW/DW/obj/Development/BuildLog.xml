@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>DW</Name>
-    <LastWriteTime>2020-11-22T22:30:10.681749Z</LastWriteTime>
+    <LastWriteTime>2020-11-26T13:50:22.0685522Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -28,7 +28,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DimCustomer.dtsx</Name>
-      <LastWriteTime>2020-11-25T23:12:16.1119418Z</LastWriteTime>
+      <LastWriteTime>2020-11-26T23:09:47.933127Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>DimPromotion.dtsx</Name>
+      <LastWriteTime>2020-11-26T13:50:22.0390087Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
