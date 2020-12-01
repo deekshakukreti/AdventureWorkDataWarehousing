@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="DimCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{71E51AE5-B18B-4163-A77C-4305109507BF}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{760666CF-84AE-453C-8027-7C7244A14D2D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1877,6 +1877,163 @@
                       dataType="i4"
                       lineageId="Package\Load DimCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[PersonID]"
                       name="PersonID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimCustomer\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input].Columns[Education]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Education"
+                      lineageId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]" />
+                    <inputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input].Columns[Occupation]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Occupation"
+                      lineageId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[SpanishEducation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="34"
+                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[SpanishEducation]"
+                      name="SpanishEducation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Bachelors" ? "Licenciatura" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Graduate Degree" ? "Estudios de postgrado" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "High School" ? "Educación secundaria" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Partial High School" ? "Educación secundaria (en curso)" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Partial College" ? "Estudios universitarios (en curso)" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Education) == "Bachelors" ? "Licenciatura" : (Education) == "Graduate Degree" ? "Estudios de postgrado" : (Education) == "High School" ? "Educación secundaria" : (Education) == "Partial High School" ? "Educación secundaria (en curso)" : (Education) == "Partial College" ? "Estudios universitarios (en curso)" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[FrenchEducation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="12"
+                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[FrenchEducation]"
+                      name="FrenchEducation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Bachelors" ? "Bac + 4" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Graduate Degree" ? "Bac + 3" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "High School" ? "Bac + 2" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Partial High School" ? "Niveau bac" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Education]}) == "Partial College" ? "Baccalauréat" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Education) == "Bachelors" ? "Bac + 4" : (Education) == "Graduate Degree" ? "Bac + 3" : (Education) == "High School" ? "Bac + 2" : (Education) == "Partial High School" ? "Niveau bac" : (Education) == "Partial College" ? "Baccalauréat" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[SpanishOccupation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[SpanishOccupation]"
+                      name="SpanishOccupation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Skilled Manual" ? "Obrero especializado" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Manual" ? "Obrero" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Clerical" ? "Administrativo" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Management" ? "Gestión" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Professional" ? "Profesional" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Occupation) == "Skilled Manual" ? "Obrero especializado" : (Occupation) == "Manual" ? "Obrero" : (Occupation) == "Clerical" ? "Administrativo" : (Occupation) == "Management" ? "Gestión" : (Occupation) == "Professional" ? "Profesional" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[FrenchOccupation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Output].Columns[FrenchOccupation]"
+                      name="FrenchOccupation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Skilled Manual" ? "Technicien" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Manual" ? "Ouvrier" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Clerical" ? "Employé" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Management" ? "Direction" : (#{Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output].Columns[Occupation]}) == "Professional" ? "Cadre" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Occupation) == "Skilled Manual" ? "Technicien" : (Occupation) == "Manual" ? "Ouvrier" : (Occupation) == "Clerical" ? "Employé" : (Occupation) == "Management" ? "Direction" : (Occupation) == "Professional" ? "Cadre" : ""</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimCustomer\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -6567,84 +6724,89 @@
           <paths>
             <path
               refId="Package\Load DimCustomer.Paths[Merge Join Output]"
+              endId="Package\Load DimCustomer\Derived Column.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\Load DimCustomer\Merge GeographyKey.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[Merge Join Output1]"
               endId="Package\Load DimCustomer\BusinessID_Sort.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\Merge Join 1.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output1]"
+              refId="Package\Load DimCustomer.Paths[Merge Join Output2]"
               endId="Package\Load DimCustomer\Merge Person Demographics.Inputs[Merge Join Left Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\MergeAddress.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output2]"
+              refId="Package\Load DimCustomer.Paths[Merge Join Output3]"
               endId="Package\Load DimCustomer\MergeAddress.Inputs[Merge Join Left Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\MergePhoneNumber.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output3]"
+              refId="Package\Load DimCustomer.Paths[Merge Join Output4]"
               endId="Package\Load DimCustomer\PostalCodeCity_FK.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\Merge Person Demographics.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output4]"
+              refId="Package\Load DimCustomer.Paths[Merge Join Output5]"
               endId="Package\Load DimCustomer\BusinessEntityID_FK.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\Merge Join.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Merge Join Output5]"
+              refId="Package\Load DimCustomer.Paths[Merge Join Output6]"
               endId="Package\Load DimCustomer\MergePhoneNumber.Inputs[Merge Join Left Input]"
               name="Merge Join Output"
               startId="Package\Load DimCustomer\AddEMailAddress.Outputs[Merge Join Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[OLE DB Source Output7]"
+              endId="Package\Load DimCustomer\PersonID_FK.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimCustomer\Customer.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output6]"
               endId="Package\Load DimCustomer\BusinessEntityID_PK.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomer\Person.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output5]"
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output4]"
               endId="Package\Load DimCustomer\PhoneBusinessEntity_PK.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomer\PhoneNumber.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output4]"
-              endId="Package\Load DimCustomer\AddressID_PK.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load DimCustomer\Address.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output6]"
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output5]"
               endId="Package\Load DimCustomer\BusinessEntityIDEmail_PK.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomer\EmailAddress.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[OLE DB Source Output2]"
-              endId="Package\Load DimCustomer\vBusinessID_PK.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load DimCustomer\vPersonDemographics.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
-              endId="Package\Load DimCustomer\Sort PostalCode City.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load DimCustomer\DimGeography.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output]"
-              endId="Package\Load DimCustomer\PersonID_FK.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Load DimCustomer\Customer.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Load DimCustomer.Paths[OLE DB Source Output3]"
               endId="Package\Load DimCustomer\AddressBE_PK.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Load DimCustomer\BusinessEntityAddress.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Sort Output9]"
-              endId="Package\Load DimCustomer\MergePhoneNumber.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\Load DimCustomer\PhoneBusinessEntity_PK.Outputs[Sort Output]" />
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
+              endId="Package\Load DimCustomer\vBusinessID_PK.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimCustomer\vPersonDemographics.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Load DimCustomer.Paths[Sort Output]"
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output]"
+              endId="Package\Load DimCustomer\Sort PostalCode City.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimCustomer\DimGeography.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[OLE DB Source Output3]"
+              endId="Package\Load DimCustomer\AddressID_PK.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimCustomer\Address.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[Sort Output9]"
               endId="Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Load DimCustomer\PostalCodeCity_FK.Outputs[Sort Output]" />
+            <path
+              refId="Package\Load DimCustomer.Paths[Sort Output]"
+              endId="Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Load DimCustomer\Sort PostalCode City.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output1]"
               endId="Package\Load DimCustomer\AddEMailAddress.Inputs[Merge Join Left Input]"
@@ -6687,9 +6849,9 @@
               startId="Package\Load DimCustomer\vBusinessID_PK.Outputs[Sort Output]" />
             <path
               refId="Package\Load DimCustomer.Paths[Sort Output10]"
-              endId="Package\Load DimCustomer\Merge GeographyKey.Inputs[Merge Join Right Input]"
+              endId="Package\Load DimCustomer\MergePhoneNumber.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\Load DimCustomer\Sort PostalCode City.Outputs[Sort Output]" />
+              startId="Package\Load DimCustomer\PhoneBusinessEntity_PK.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -6732,7 +6894,7 @@
           Id="Package\Load DimCustomer\PersonID_FK"
           TopLeft="276.249995883554,31.2499999418855" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output7]"
           TopLeft="193.874998034909,28">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6770,7 +6932,7 @@
           Id="Package\Load DimCustomer\BusinessEntityID_PK"
           TopLeft="271.24999595806,105.349998616874" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output7]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output6]"
           TopLeft="193.541664701576,149.966665248672">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6876,7 +7038,7 @@
           Id="Package\Load DimCustomer\BusinessEntityIDEmail_PK"
           TopLeft="277.499995864928,191.799997071028" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output6]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output5]"
           TopLeft="248.916665083418,215.083330369492">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6928,7 +7090,7 @@
           Id="Package\Load DimCustomer\BusinessEntityID_FK"
           TopLeft="515.624992316589,107.299998582006" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output4]"
+          Id="Package\Load DimCustomer.Paths[Merge Join Output5]"
           TopLeft="616.222214324607,75.8666665736834">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6992,7 +7154,7 @@
           Id="Package\Load DimCustomer\PhoneBusinessEntity_PK"
           TopLeft="293.124995632097,264.133329242071" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output5]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output4]"
           TopLeft="251.041665111358,284.699995606542">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7018,7 +7180,7 @@
           Id="Package\Load DimCustomer\MergePhoneNumber"
           TopLeft="495.624992614612,269.366662505667" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output5]"
+          Id="Package\Load DimCustomer.Paths[Merge Join Output6]"
           TopLeft="596.874992297962,236.416663702826">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7052,7 +7214,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output9]"
+          Id="Package\Load DimCustomer.Paths[Sort Output10]"
           TopLeft="390.458328965431,264.133329242071">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7094,7 +7256,7 @@
           Id="Package\Load DimCustomer\AddressBE_PK"
           TopLeft="308.749995399267,330.249995680153" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output3]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output2]"
           TopLeft="263.708331927036,350.299995405078">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7124,7 +7286,7 @@
           Id="Package\Load DimCustomer\AddressID_PK"
           TopLeft="304.999996051192,391.983329602381" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output4]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output3]"
           TopLeft="216.79166520449,412.191662616084">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7154,7 +7316,7 @@
           Id="Package\Load DimCustomer\vBusinessID_PK"
           TopLeft="302.222218314807,585.855550908976" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output2]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
           TopLeft="258.652777261411,606.344439467258">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7192,7 +7354,7 @@
           Id="Package\Load DimCustomer\Sort PostalCode City"
           TopLeft="242.777774259448,660.777773671018" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[OLE DB Source Output1]"
+          Id="Package\Load DimCustomer.Paths[OLE DB Source Output]"
           TopLeft="199.055554913978,682.712958501059">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7218,7 +7380,7 @@
           Id="Package\Load DimCustomer\PostalCodeCity_FK"
           TopLeft="453.194437790662,679.111106875208" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output3]"
+          Id="Package\Load DimCustomer.Paths[Merge Join Output4]"
           TopLeft="580.620363406147,630.296291802106">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7328,7 +7490,7 @@
           Id="Package\Load DimCustomer\MergeAddress"
           TopLeft="503.79628903198,494.962958933689" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output2]"
+          Id="Package\Load DimCustomer.Paths[Merge Join Output3]"
           TopLeft="583.624992614612,312.033329172333">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7396,7 +7558,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output1]"
+          Id="Package\Load DimCustomer.Paths[Merge Join Output2]"
           TopLeft="578.874992885731,537.629625600356">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7452,7 +7614,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Merge Join Output]"
+          Id="Package\Load DimCustomer.Paths[Merge Join Output1]"
           TopLeft="566.435178096786,396.277776421772">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7490,7 +7652,7 @@
           Id="Package\Load DimCustomer\Merge GeographyKey"
           TopLeft="456.249993201345,753.759252324259" />
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output]"
+          Id="Package\Load DimCustomer.Paths[Sort Output9]"
           TopLeft="536.527771123995,721.777773541874">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7524,7 +7686,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load DimCustomer.Paths[Sort Output10]"
+          Id="Package\Load DimCustomer.Paths[Sort Output]"
           TopLeft="330.111107592781,703.444440337684">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7549,6 +7711,32 @@
                     Point3="187.472218941897,33.9229058069936" />
                   <mssgle:LineSegment
                     End="187.472218941897,42.8148119865745" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Load DimCustomer\Derived Column"
+          TopLeft="472.222215185563,830.722215235564" />
+        <EdgeLayout
+          Id="Package\Load DimCustomer.Paths[Merge Join Output]"
+          TopLeft="547.902770860121,796.425918990926">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.2962962446388"
+              Start="0,0"
+              End="0,26.7962962446388">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7962962446388" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

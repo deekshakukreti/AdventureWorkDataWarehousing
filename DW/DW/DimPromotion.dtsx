@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="DimPromotion"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{EDD20735-140A-4A42-8C14-9411B90477F8}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{B5F3BE1F-5B0A-4D7D-8E47-E91C7DC2490B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -43,6 +43,26 @@
                   refId="Package\DimPromotion\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimPromotion\Derived Column.Inputs[Derived Column Input].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Description"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\Derived Column.Inputs[Derived Column Input].Columns[Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\Derived Column.Inputs[Derived Column Input].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -53,6 +73,146 @@
                   exclusionGroup="1"
                   name="Derived Column Output"
                   synchronousInputId="Package\DimPromotion\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionName]"
+                      name="SpanishPromotionName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Half-Price Pedal Sale" ? "Venta de pedales a mitad de precio" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "LL Road Frame Sale" ? "Oferta de cuadro de carretera GB" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Mountain Tire Sale" ? "Oferta de cubierta de montaña" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Mountain-100 Clearance Sale" ? "Liquidación de bicicleta de montaña, 100" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Mountain-500 Silver Clearance Sale" ? "Liquidación de bicicleta de montaña, 500, plateada" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "No Discount" ? "Sin descuento" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Road-650 Overstock" ? "Bicicleta de carretera: 650, oferta especial" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Sport Helmet Discount-2002" ? "Casco deportivo, descuento: 2002" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Sport Helmet Discount-2003" ? "Casco deportivo, descuento: 2003" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Touring-1000 Promotion" ? "Promoción ‘Touring-1000’" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Touring-3000 Promotion" ? "Promoción ‘Touring-3000’" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 11 to 14" ? "Descuento por volumen (entre 11 y 14)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 15 to 24" ? "Descuento por volumen (entre 15 y 24)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 25 to 40" ? "Descuento por volumen (entre 25 y 40)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 41 to 60" ? "Descuento por volumen (entre 41 y 60)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount over 60" ? "Descuento por volumen (más de 60)" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Description) == "Half-Price Pedal Sale" ? "Venta de pedales a mitad de precio" : (Description) == "LL Road Frame Sale" ? "Oferta de cuadro de carretera GB" : (Description) == "Mountain Tire Sale" ? "Oferta de cubierta de montaña" : (Description) == "Mountain-100 Clearance Sale" ? "Liquidación de bicicleta de montaña, 100" : (Description) == "Mountain-500 Silver Clearance Sale" ? "Liquidación de bicicleta de montaña, 500, plateada" : (Description) == "No Discount" ? "Sin descuento" : (Description) == "Road-650 Overstock" ? "Bicicleta de carretera: 650, oferta especial" : (Description) == "Sport Helmet Discount-2002" ? "Casco deportivo, descuento: 2002" : (Description) == "Sport Helmet Discount-2003" ? "Casco deportivo, descuento: 2003" : (Description) == "Touring-1000 Promotion" ? "Promoción ‘Touring-1000’" : (Description) == "Touring-3000 Promotion" ? "Promoción ‘Touring-3000’" : (Description) == "Volume Discount 11 to 14" ? "Descuento por volumen (entre 11 y 14)" : (Description) == "Volume Discount 15 to 24" ? "Descuento por volumen (entre 15 y 24)" : (Description) == "Volume Discount 25 to 40" ? "Descuento por volumen (entre 25 y 40)" : (Description) == "Volume Discount 41 to 60" ? "Descuento por volumen (entre 41 y 60)" : (Description) == "Volume Discount over 60" ? "Descuento por volumen (más de 60)" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="35"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionName]"
+                      name="FrenchPromotionName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Half-Price Pedal Sale" ? "Pédales à moitié prix" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "LL Road Frame Sale" ? "Vente de cadres de vélo de route LL" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Mountain Tire Sale" ? "Vente de pneus de VTT" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Mountain-100 Clearance Sale" ? "Liquidation VTT 100" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Mountain-500 Silver Clearance Sale" ? "Liquidation VTT 500 argent" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "No Discount" ? "Aucune remise" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Road-650 Overstock" ? "Déstockage Vélo de route 650" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Sport Helmet Discount-2002" ? "Remise sur les casques sport - 2002" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Sport Helmet Discount-2003" ? "Remise sur les casques sport - 2003" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Touring-1000 Promotion" ? "Promotion “Touring-1000”" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Touring-3000 Promotion" ? "Promotion “Touring-3000”" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 11 to 14" ? "Remise sur quantité (de 11 à 14)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 15 to 24" ? "Remise sur quantité (de 15 à 24)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 25 to 40" ? "Remise sur quantité (de 25 à 40)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount 41 to 60" ? "Remise sur quantité (de 41 à 60)" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]}) == "Volume Discount over 60" ? "Remise sur quantité (au-delà de 60)" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Description) == "Half-Price Pedal Sale" ? "Pédales à moitié prix" : (Description) == "LL Road Frame Sale" ? "Vente de cadres de vélo de route LL" : (Description) == "Mountain Tire Sale" ? "Vente de pneus de VTT" : (Description) == "Mountain-100 Clearance Sale" ? "Liquidation VTT 100" : (Description) == "Mountain-500 Silver Clearance Sale" ? "Liquidation VTT 500 argent" : (Description) == "No Discount" ? "Aucune remise" : (Description) == "Road-650 Overstock" ? "Déstockage Vélo de route 650" : (Description) == "Sport Helmet Discount-2002" ? "Remise sur les casques sport - 2002" : (Description) == "Sport Helmet Discount-2003" ? "Remise sur les casques sport - 2003" : (Description) == "Touring-1000 Promotion" ? "Promotion “Touring-1000”" : (Description) == "Touring-3000 Promotion" ? "Promotion “Touring-3000”" : (Description) == "Volume Discount 11 to 14" ? "Remise sur quantité (de 11 à 14)" : (Description) == "Volume Discount 15 to 24" ? "Remise sur quantité (de 15 à 24)" : (Description) == "Volume Discount 25 to 40" ? "Remise sur quantité (de 25 à 40)" : (Description) == "Volume Discount 41 to 60" ? "Remise sur quantité (de 41 à 60)" : (Description) == "Volume Discount over 60" ? "Remise sur quantité (au-delà de 60)" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="22"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionType]"
+                      name="SpanishPromotionType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Discontinued Product" ? "Descatalogado" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Excess Inventory" ? "Inventario excedente" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "New Product" ? "Producto Nuevo" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "No Discount" ? "Sin descuento" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Seasonal Discount" ? "Descuento de temporada" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Volume Discount" ? "Descuento por volumen" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Type) == "Discontinued Product" ? "Descatalogado" : (Type) == "Excess Inventory" ? "Inventario excedente" : (Type) == "New Product" ? "Producto Nuevo" : (Type) == "No Discount" ? "Sin descuento" : (Type) == "Seasonal Discount" ? "Descuento de temporada" : (Type) == "Volume Discount" ? "Descuento por volumen" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="35"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionType]"
+                      name="FrenchPromotionType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Discontinued Product" ? "Ce produit n'est plus commercialisé" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Excess Inventory" ? "Déstockage" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "New Product" ? "Nouveau produit" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "No Discount" ? "Aucune remise" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Seasonal Discount" ? "Remise saisonnière" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]}) == "Volume Discount" ? "Remise sur quantité" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Type) == "Discontinued Product" ? "Ce produit n'est plus commercialisé" : (Type) == "Excess Inventory" ? "Déstockage" : (Type) == "New Product" ? "Nouveau produit" : (Type) == "No Discount" ? "Aucune remise" : (Type) == "Seasonal Discount" ? "Remise saisonnière" : (Type) == "Volume Discount" ? "Remise sur quantité" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionCategory]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="13"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionCategory]"
+                      name="SpanishPromotionCategory"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]}) == "Customer" ? "Cliente" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]}) == "No Discount" ? "Sin descuento" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]}) == "Reseller" ? "Distribuidor" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Category) == "Customer" ? "Cliente" : (Category) == "No Discount" ? "Sin descuento" : (Category) == "Reseller" ? "Distribuidor" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionCategory]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="13"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionCategory]"
+                      name="FrenchPromotionCategory"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]}) == "Customer" ? "Client" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]}) == "No Discount" ? "Aucune remise" : (#{Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]}) == "Reseller" ? "Revendeur" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Category) == "Customer" ? "Client" : (Category) == "No Discount" ? "Aucune remise" : (Category) == "Reseller" ? "Revendeur" : ""</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -81,11 +241,286 @@
               </outputs>
             </component>
             <component
-              refId="Package\DimPromotion\SaesSpecialOffer"
+              refId="Package\DimPromotion\DimPromotion"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimPromotion"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimPromotion]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimPromotion\DimPromotion.Connections[OleDbConnection]"
+                  connectionManagerID="{3D6E66AA-0ACF-4370-8350-A5756DFDE576}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AdventureWorkDest]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[DiscountPct]"
+                      cachedDataType="cy"
+                      cachedName="DiscountPct"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[DiscountPct]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[DiscountPct]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[MinQty]"
+                      cachedDataType="i4"
+                      cachedName="MinQty"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[MinQty]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[MinQty]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[MaxQty]"
+                      cachedDataType="i4"
+                      cachedName="MaxQty"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[MaxQty]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[MaxQty]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[SpanishPromotionName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SpanishPromotionName"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[SpanishPromotionName]"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionName]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[FrenchPromotionName]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="FrenchPromotionName"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[FrenchPromotionName]"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionName]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[SpanishPromotionType]"
+                      cachedDataType="wstr"
+                      cachedLength="22"
+                      cachedName="SpanishPromotionType"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[SpanishPromotionType]"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionType]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[FrenchPromotionType]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="FrenchPromotionType"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[FrenchPromotionType]"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionType]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[SpanishPromotionCategory]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="SpanishPromotionCategory"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[SpanishPromotionCategory]"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[SpanishPromotionCategory]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[FrenchPromotionCategory]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="FrenchPromotionCategory"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[FrenchPromotionCategory]"
+                      lineageId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output].Columns[FrenchPromotionCategory]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[SpecialOfferID]"
+                      cachedDataType="i4"
+                      cachedName="SpecialOfferID"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[PromotionAlternateKey]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[SpecialOfferID]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EnglishPromotionName]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EnglishPromotionType]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EnglishPromotionCategory]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[PromotionKey]"
+                      dataType="i4"
+                      name="PromotionKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[PromotionAlternateKey]"
+                      dataType="i4"
+                      name="PromotionAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EnglishPromotionName]"
+                      dataType="wstr"
+                      length="255"
+                      name="EnglishPromotionName" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[SpanishPromotionName]"
+                      dataType="wstr"
+                      length="255"
+                      name="SpanishPromotionName" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[FrenchPromotionName]"
+                      dataType="wstr"
+                      length="255"
+                      name="FrenchPromotionName" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[DiscountPct]"
+                      dataType="r8"
+                      name="DiscountPct" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EnglishPromotionType]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishPromotionType" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[SpanishPromotionType]"
+                      dataType="wstr"
+                      length="50"
+                      name="SpanishPromotionType" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[FrenchPromotionType]"
+                      dataType="wstr"
+                      length="50"
+                      name="FrenchPromotionType" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EnglishPromotionCategory]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishPromotionCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[SpanishPromotionCategory]"
+                      dataType="wstr"
+                      length="50"
+                      name="SpanishPromotionCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[FrenchPromotionCategory]"
+                      dataType="wstr"
+                      length="50"
+                      name="FrenchPromotionCategory" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[MinQty]"
+                      dataType="i4"
+                      name="MinQty" />
+                    <externalMetadataColumn
+                      refId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input].ExternalColumns[MaxQty]"
+                      dataType="i4"
+                      name="MaxQty" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimPromotion\DimPromotion.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimPromotion\DimPromotion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimPromotion\DimPromotion.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimPromotion\DimPromotion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimPromotion\DimPromotion.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimPromotion\SalesSpecialOffer"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="SaesSpecialOffer"
+              name="SalesSpecialOffer"
               usesDispositions="true"
               version="7">
               <properties>
@@ -130,7 +565,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DimPromotion\SaesSpecialOffer.Connections[OleDbConnection]"
+                  refId="Package\DimPromotion\SalesSpecialOffer.Connections[OleDbConnection]"
                   connectionManagerID="{81F8A98F-AC9D-43B2-9503-F185E850D871}:external"
                   connectionManagerRefId="Project.ConnectionManagers[AdventureWorkSource]"
                   description="The OLE DB runtime connection used to access the database."
@@ -138,209 +573,209 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output]"
+                  refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
                       name="SpecialOfferID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Description]"
                       length="255"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Description]"
                       name="Description"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[DiscountPct]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[DiscountPct]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[DiscountPct]"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[DiscountPct]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[DiscountPct]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[DiscountPct]"
                       name="DiscountPct"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Type]"
                       length="50"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Type]"
                       name="Type"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Category]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Category]"
                       length="50"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[Category]"
                       name="Category"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[StartDate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[StartDate]"
                       name="StartDate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[EndDate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[EndDate]"
                       name="EndDate"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[MinQty]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[MinQty]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MinQty]"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[MinQty]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MinQty]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[MinQty]"
                       name="MinQty"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[MaxQty]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[MaxQty]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MaxQty]"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].Columns[MaxQty]"
+                      externalMetadataColumnId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MaxQty]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].Columns[MaxQty]"
                       name="MaxQty"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
                       dataType="i4"
                       name="SpecialOfferID" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Description]"
                       dataType="wstr"
                       length="255"
                       name="Description" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[DiscountPct]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[DiscountPct]"
                       dataType="cy"
                       name="DiscountPct" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Type]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Type]"
                       dataType="wstr"
                       length="50"
                       name="Type" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Category]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[Category]"
                       dataType="wstr"
                       length="50"
                       name="Category" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
                       dataType="dbTimeStamp"
                       name="StartDate" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
                       dataType="dbTimeStamp"
                       name="EndDate" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MinQty]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MinQty]"
                       dataType="i4"
                       name="MinQty" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MaxQty]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[MaxQty]"
                       dataType="i4"
                       name="MaxQty" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
                       dataType="guid"
                       name="rowguid" />
                     <externalMetadataColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
                       dataType="dbTimeStamp"
                       name="ModifiedDate" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output]"
+                  refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
                       dataType="i4"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
                       name="SpecialOfferID" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Description]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Description]"
                       name="Description" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[DiscountPct]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[DiscountPct]"
                       dataType="cy"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[DiscountPct]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[DiscountPct]"
                       name="DiscountPct" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Type]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Type]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Type]"
                       name="Type" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Category]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Category]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Category]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[Category]"
                       name="Category" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[StartDate]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[StartDate]"
                       name="StartDate" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[EndDate]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[EndDate]"
                       name="EndDate" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MinQty]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MinQty]"
                       dataType="i4"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MinQty]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MinQty]"
                       name="MinQty" />
                     <outputColumn
-                      refId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MaxQty]"
+                      refId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MaxQty]"
                       dataType="i4"
-                      lineageId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MaxQty]"
+                      lineageId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Error Output].Columns[MaxQty]"
                       name="MaxQty" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -350,10 +785,15 @@
           </components>
           <paths>
             <path
+              refId="Package\DimPromotion.Paths[Derived Column Output]"
+              endId="Package\DimPromotion\DimPromotion.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DimPromotion\Derived Column.Outputs[Derived Column Output]" />
+            <path
               refId="Package\DimPromotion.Paths[OLE DB Source Output]"
               endId="Package\DimPromotion\Derived Column.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
-              startId="Package\DimPromotion\SaesSpecialOffer.Outputs[OLE DB Source Output]" />
+              startId="Package\DimPromotion\SalesSpecialOffer.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -382,10 +822,10 @@
     design-time-name="Package\DimPromotion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="158.666666666667,42.6666666666667"
-          Id="Package\DimPromotion\SaesSpecialOffer"
+          Size="161.333333333334,42.6666666666667"
+          Id="Package\DimPromotion\SalesSpecialOffer"
           TopLeft="113.124998314306,35.0999993723631" />
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
@@ -393,7 +833,7 @@
           TopLeft="114.37499829568,111.79999800086" />
         <EdgeLayout
           Id="Package\DimPromotion.Paths[OLE DB Source Output]"
-          TopLeft="192.083331638326,77.7666660390298">
+          TopLeft="192.749998304993,77.7666660390298">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -413,11 +853,50 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\DimPromotion\DimPromotion"
+          TopLeft="113.749998304993,186.549996664226" />
+        <EdgeLayout
+          Id="Package\DimPromotion.Paths[Derived Column Output]"
+          TopLeft="189.39583163367,154.466664667527">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.0833319966992"
+              Start="0,0"
+              End="0,24.5833319966992">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5833319966992" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DimPromotion\SaesSpecialOffer">
+    design-time-name="Package\DimPromotion\SalesSpecialOffer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimPromotion\DimPromotion">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
