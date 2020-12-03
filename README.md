@@ -36,5 +36,9 @@ The data is populated from various Adventurework Database tables and views. Merg
 
 This table is populated from Sales.SpecialOffer which has only 16 records in the AdventureWork Database table. The destination has few derived columns and also consist of only 16 records in the dbo.DimPromotion.
 
+#### Table 7 : dbo.DimProductSubCategory
+
+The dimansional table is derived from ProductionSubCategory table. The package development consist of OLEDB source and destination components alongwith derived column component. Only 37 records were reproduced in this table.
+
 
 
