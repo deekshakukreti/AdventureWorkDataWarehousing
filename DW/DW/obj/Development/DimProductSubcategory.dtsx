@@ -1,0 +1,582 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/3/2020 11:13:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-0V2M2V1"
+  DTS:CreatorName="DESKTOP-0V2M2V1\deeks"
+  DTS:DTSID="{8FD48694-4CFF-431F-B4C3-FA127B2F4267}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.128"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="DimProductSubcategory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{5E8F8339-AAD6-477E-BE29-39C652DB57FA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load DimProductSubCategory"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D425FFC4-43F6-4B2A-8A39-2C91B6E1FA83}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load DimProductSubCategory"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load DimProductSubCategory\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load DimProductSubCategory\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimProductSubCategory\Derived Column.Inputs[Derived Column Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Load DimProductSubCategory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output].Columns[SpanishProductSubcategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="23"
+                      lineageId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output].Columns[SpanishProductSubcategoryName]"
+                      name="SpanishProductSubcategoryName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bib-Shorts" ? "Culote corto" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bike Racks" ? "Portabicicletas" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bike Stands" ? "Soporte para bicicletas" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bottles and Cages" ? "Portabotellas y botella" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bottom Brackets" ? "Eje de pedalier" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Brakes" ? "Frenos" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Caps" ? "Gorra" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Chains" ? "Cadena" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Cleaners" ? "Limpiador" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Cranksets" ? "Bielas" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Derailleurs" ? "Desviador" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Fenders" ? "Guardabarros" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Forks" ? "Horquilla" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Gloves" ? "Guantes" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Handlebars" ? "Barra" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Headsets" ? "Dirección" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Helmets" ? "Casco" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Hydration Packs" ? "Sistema de hidratación" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Jerseys" ? "Jersey" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Lights" ? "Luz" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Locks" ? "Candado" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Mountain Bikes" ? "Bicicleta de montaña" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Mountain Frames" ? "Cuadro de montaña" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Panniers" ? "Cesta" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Pumps" ? "Bomba" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Road Bikes" ? "Bicicleta de carretera" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Road Frames" ? "Cuadro de carretera" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Saddles" ? "Sillín" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Shorts" ? "Pantalones cortos" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Socks" ? "Calcetines" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Tights" ? "Mallas" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Tires and Tubes" ? "Cubierta y cámara" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Touring Bikes" ? "Bicicleta de paseo" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Touring Frames" ? "Cuadro de paseo" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Vests" ? "Camiseta" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Wheels" ? "Rueda" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Name) == "Bib-Shorts" ? "Culote corto" : (Name) == "Bike Racks" ? "Portabicicletas" : (Name) == "Bike Stands" ? "Soporte para bicicletas" : (Name) == "Bottles and Cages" ? "Portabotellas y botella" : (Name) == "Bottom Brackets" ? "Eje de pedalier" : (Name) == "Brakes" ? "Frenos" : (Name) == "Caps" ? "Gorra" : (Name) == "Chains" ? "Cadena" : (Name) == "Cleaners" ? "Limpiador" : (Name) == "Cranksets" ? "Bielas" : (Name) == "Derailleurs" ? "Desviador" : (Name) == "Fenders" ? "Guardabarros" : (Name) == "Forks" ? "Horquilla" : (Name) == "Gloves" ? "Guantes" : (Name) == "Handlebars" ? "Barra" : (Name) == "Headsets" ? "Dirección" : (Name) == "Helmets" ? "Casco" : (Name) == "Hydration Packs" ? "Sistema de hidratación" : (Name) == "Jerseys" ? "Jersey" : (Name) == "Lights" ? "Luz" : (Name) == "Locks" ? "Candado" : (Name) == "Mountain Bikes" ? "Bicicleta de montaña" : (Name) == "Mountain Frames" ? "Cuadro de montaña" : (Name) == "Panniers" ? "Cesta" : (Name) == "Pumps" ? "Bomba" : (Name) == "Road Bikes" ? "Bicicleta de carretera" : (Name) == "Road Frames" ? "Cuadro de carretera" : (Name) == "Saddles" ? "Sillín" : (Name) == "Shorts" ? "Pantalones cortos" : (Name) == "Socks" ? "Calcetines" : (Name) == "Tights" ? "Mallas" : (Name) == "Tires and Tubes" ? "Cubierta y cámara" : (Name) == "Touring Bikes" ? "Bicicleta de paseo" : (Name) == "Touring Frames" ? "Cuadro de paseo" : (Name) == "Vests" ? "Camiseta" : (Name) == "Wheels" ? "Rueda" : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output].Columns[FrenchProductSubcategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="26"
+                      lineageId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output].Columns[FrenchProductSubcategoryName]"
+                      name="FrenchProductSubcategoryName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bib-Shorts" ? "Cuissards avec bretelles" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bike Racks" ? "Porte-vélo" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bike Stands" ? "Range-vélo" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bottles and Cages" ? "Bidon et porte-bidon" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Bottom Brackets" ? "Axe de pédalier" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Brakes" ? "Freins" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Caps" ? "Casquette" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Chains" ? "Chaîne" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Cleaners" ? "Nettoyant" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Cranksets" ? "Pédalier" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Derailleurs" ? "Dérailleur" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Fenders" ? "Garde-boue" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Forks" ? "Fourche" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Gloves" ? "Gants" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Handlebars" ? "Barre d'appui" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Headsets" ? "Jeu de direction" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Helmets" ? "Casque" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Hydration Packs" ? "Sac d'hydratation" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Jerseys" ? "Maillot" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Lights" ? "Éclairage" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Locks" ? "Antivol" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Mountain Bikes" ? "VTT" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Mountain Frames" ? "Cadre de VTT" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Panniers" ? "Sacoche" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Pedals" ? "Pédale" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Pumps" ? "Pompe" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Road Bikes" ? "Vélo de route" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Road Frames" ? "Cadre de vélo de route" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Saddles" ? "Selle" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Shorts" ? "Cuissards" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Socks" ? "Chaussettes" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Tights" ? "Collants" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Tires and Tubes" ? "Pneu et chambre à air" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Touring Bikes" ? "Vélo de randonnée" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Touring Frames" ? "Cadre de vélo de randonnée" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Vests" ? "Veste" : (#{Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]}) == "Wheels" ? "Roue" : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(Name) == "Bib-Shorts" ? "Cuissards avec bretelles" : (Name) == "Bike Racks" ? "Porte-vélo" : (Name) == "Bike Stands" ? "Range-vélo" : (Name) == "Bottles and Cages" ? "Bidon et porte-bidon" : (Name) == "Bottom Brackets" ? "Axe de pédalier" : (Name) == "Brakes" ? "Freins" : (Name) == "Caps" ? "Casquette" : (Name) == "Chains" ? "Chaîne" : (Name) == "Cleaners" ? "Nettoyant" : (Name) == "Cranksets" ? "Pédalier" : (Name) == "Derailleurs" ? "Dérailleur" : (Name) == "Fenders" ? "Garde-boue" : (Name) == "Forks" ? "Fourche" : (Name) == "Gloves" ? "Gants" : (Name) == "Handlebars" ? "Barre d'appui" : (Name) == "Headsets" ? "Jeu de direction" : (Name) == "Helmets" ? "Casque" : (Name) == "Hydration Packs" ? "Sac d'hydratation" : (Name) == "Jerseys" ? "Maillot" : (Name) == "Lights" ? "Éclairage" : (Name) == "Locks" ? "Antivol" : (Name) == "Mountain Bikes" ? "VTT" : (Name) == "Mountain Frames" ? "Cadre de VTT" : (Name) == "Panniers" ? "Sacoche" : (Name) == "Pedals" ? "Pédale" : (Name) == "Pumps" ? "Pompe" : (Name) == "Road Bikes" ? "Vélo de route" : (Name) == "Road Frames" ? "Cadre de vélo de route" : (Name) == "Saddles" ? "Selle" : (Name) == "Shorts" ? "Cuissards" : (Name) == "Socks" ? "Chaussettes" : (Name) == "Tights" ? "Collants" : (Name) == "Tires and Tubes" ? "Pneu et chambre à air" : (Name) == "Touring Bikes" ? "Vélo de randonnée" : (Name) == "Touring Frames" ? "Cadre de vélo de randonnée" : (Name) == "Vests" ? "Veste" : (Name) == "Wheels" ? "Roue" : ""</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Load DimProductSubCategory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimProductSubCategory\DimProductSubCategory"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimProductSubCategory"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimProductSubCategory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimProductSubCategory\DimProductSubCategory.Connections[OleDbConnection]"
+                  connectionManagerID="{3D6E66AA-0ACF-4370-8350-A5756DFDE576}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AdventureWorkDest]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].Columns[SpanishProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="23"
+                      cachedName="SpanishProductSubcategoryName"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[SpanishProductSubcategoryName]"
+                      lineageId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output].Columns[SpanishProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].Columns[FrenchProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="26"
+                      cachedName="FrenchProductSubcategoryName"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[FrenchProductSubcategoryName]"
+                      lineageId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output].Columns[FrenchProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].Columns[ProductSubcategoryID]"
+                      cachedDataType="i4"
+                      cachedName="ProductSubcategoryID"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryAlternateKey]"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[ProductSubcategoryID]" />
+                    <inputColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[EnglishProductSubcategoryName]"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].Columns[ProductCategoryID]"
+                      cachedDataType="i4"
+                      cachedName="ProductCategoryID"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[ProductCategoryID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryAlternateKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[EnglishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EnglishProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[SpanishProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="SpanishProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[FrenchProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FrenchProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load DimProductSubCategory\DimProductSubCategory.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\DimProductSubCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\DimProductSubCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\DimProductSubCategory.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load DimProductSubCategory\Load ProductionSubCategory"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Load ProductionSubCategory"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Production].[ProductSubcategory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Connections[OleDbConnection]"
+                  connectionManagerID="{81F8A98F-AC9D-43B2-9503-F185E850D871}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[AdventureWorkSource]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[ProductSubcategoryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[ProductSubcategoryID]"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[ProductSubcategoryID]"
+                      name="ProductSubcategoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[ProductCategoryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryID]"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[ProductCategoryID]"
+                      name="ProductCategoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[ProductSubcategoryID]"
+                      dataType="i4"
+                      name="ProductSubcategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryID]"
+                      dataType="i4"
+                      name="ProductCategoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ProductSubcategoryID]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ProductSubcategoryID]"
+                      name="ProductSubcategoryID" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ProductCategoryID]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ProductCategoryID]"
+                      name="ProductCategoryID" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load DimProductSubCategory.Paths[Derived Column Output]"
+              endId="Package\Load DimProductSubCategory\DimProductSubCategory.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Load DimProductSubCategory\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load DimProductSubCategory.Paths[OLE DB Source Output]"
+              endId="Package\Load DimProductSubCategory\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Load DimProductSubCategory\Load ProductionSubCategory.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="220,42.6666666666667"
+          Id="Package\Load DimProductSubCategory"
+          TopLeft="174.37499740161,138.449997524321" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load DimProductSubCategory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="216,42.6666666666667"
+          Id="Package\Load DimProductSubCategory\Load ProductionSubCategory"
+          TopLeft="136.874997960404,41.5999992561341" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Load DimProductSubCategory\Derived Column"
+          TopLeft="173.124997420236,130.649997663796" />
+        <EdgeLayout
+          Id="Package\Load DimProductSubCategory.Paths[OLE DB Source Output]"
+          TopLeft="247.666664356987,84.2666659228007">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.3833317409953"
+              Start="0,0"
+              End="0,38.8833317409953">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.8833317409953" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193.333333333334,42.6666666666667"
+          Id="Package\Load DimProductSubCategory\DimProductSubCategory"
+          TopLeft="159.999997615814,216.449996129572" />
+        <EdgeLayout
+          Id="Package\Load DimProductSubCategory.Paths[Derived Column Output]"
+          TopLeft="253.562497518025,173.316664330463">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.1333317991098"
+              Start="0,0"
+              End="0,35.6333317991098">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.6333317991098" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimProductSubCategory\Load ProductionSubCategory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DimProductSubCategory\DimProductSubCategory">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
