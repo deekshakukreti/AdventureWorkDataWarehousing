@@ -1,8 +1,6 @@
 # AdventureWorkDataWarehousing 2019
 
-## AdventureWork Database version 
-
-The project is developed in SQL Server 2019 and Visual Studio 2017. The datbase files attached in SQL server management studio is AdventureWorks2019.bak file.
+The project is developed in SQL Server 2019 and Visual Studio 2017. The database files attached in SQL server management studio is AdventureWorks2019.bak file extracted from MSDN.
 
 ## Project Objective
 
@@ -43,6 +41,8 @@ This table is populated from Sales.SpecialOffer which has only 16 records in the
 #### Table 7 : dbo.DimProductSubCategory
 
 The dimansional table is derived from ProductionSubCategory table. The package development consist of OLEDB source and destination components alongwith derived column component. Only 37 records were reproduced in this table.
+
+
 
 
 
