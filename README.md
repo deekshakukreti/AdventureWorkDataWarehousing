@@ -43,8 +43,10 @@ This table is populated from Sales.SpecialOffer which has only 16 records in the
 The dimansional table is derived from ProductionSubCategory table. The package development consist of OLEDB source and destination components alongwith derived column component. Only 37 records were reproduced in this table.
 
 
+## Task 2 : Enterprise Business Matrix
 
 
+## Detailed Implementation 
 
 Another type of load is Incremental loads. This type of load occurs when full load has taken place and only subsequent amount of data changes needs to be loaded from source to destination. For sensitive data, this load can occur every five minute, depending on the infrastructure capacity. Slowly Changing Dimension (SCD) is a term used to identify which dimension tables you track historical changes. You may need to keep track of this so that if you were to run a report today and you want the report to be consistent to when you ran it one year ago before a customer’s address changed, the report would show you the same results.
 
@@ -58,3 +60,16 @@ Replaces/updates changes to record
 Keeps historical record by inserting a new record and expiring the old record
 
 
+#### Variables and Parameters
+
+Parameter values cannot be changed when the package is running (at runtime). Parameter values are fixed for the duration of the package execution. Alternatively, variables values can be changed at any time. Variables are also used to assign values dynamically at runtime.
+
+
+#### Package vs. project parameters
+
+Package deployment : The package deployment model means nothing is shared and that everything is maintained separately within each individual SSIS package—variables, connection manager, etc.
+
+ Project deployment : The project deployment model enables you to deploy your SSIS project as a single unit with shared resources, including parameters, and packages. It is deployed to either file, or to the SSISDB database catalog within SQL Server.
+ 
+ 
+ 
