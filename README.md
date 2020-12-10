@@ -69,7 +69,26 @@ Parameter values cannot be changed when the package is running (at runtime). Par
 
 Package deployment : The package deployment model means nothing is shared and that everything is maintained separately within each individual SSIS package—variables, connection manager, etc.
 
- Project deployment : The project deployment model enables you to deploy your SSIS project as a single unit with shared resources, including parameters, and packages. It is deployed to either file, or to the SSISDB database catalog within SQL Server.
+Project deployment : The project deployment model enables you to deploy your SSIS project as a single unit with shared resources, including parameters, and packages. It is deployed to either file, or to the SSISDB database catalog within SQL Server.
  
+#### Transaction
+
+To be deemed successful, transaction should be completed fully. If any step fails, the transactio is considered to be unsuccessful. This helps maintaing the integrity of data. The scope of the transaction is at different levels in SSIS and they are package level, individual control flow container or task level. Any tasks inside of the container will also be a part of the transaction as long as each individual task has the TransactionOption property set to Supported, which is the default. If there are some tasks that you do not want to rollback within a container, in case of failure, set the TransactionOption to NotSupported.
+
+
+#### Checkpoint
+
+If a package fails at a certain point, it can be configured to restart from the point of failure, or from an earlier step at the next attempt to run the package. This configuration process is called checkpoints.
+
+#### Containers and Parameters
+
+SSIS has three types of containers.
+
+Sequence Container Grouping and organizing tasks.
+
+For Loop Container Iterating tasks multiple times.
+
+Foreach Loop Container Iterating through each object or file.
  
- 
+
+Each question mark (?) represents a different variable 
