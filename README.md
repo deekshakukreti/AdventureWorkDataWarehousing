@@ -8,7 +8,7 @@ Since this is a first time load, bringing all data from source to destination he
 
 1. Developed ETL solution which uses various different data sources like CSV, Excel and SQL using SSIS.
 2. Design Enterprise Business Matrix for Adevnturework Database.
-3. Designed star schema dimensional model by loading facts and dimesnions.
+3. Designed star schema dimensional model by loading facts and dimensions.
 4. Implement Error handelling and Logging of ETL solutions.
 
 
@@ -43,10 +43,14 @@ This table is populated from Sales.SpecialOffer which has only 16 records in the
 The dimansional table is derived from ProductionSubCategory table. The package development consist of OLEDB source and destination components alongwith derived column component. Only 37 records were reproduced in this table.
 
 
+#### Table 8 : dbo.DimProductCategory
+
+
+
 ## Task 2 : Enterprise Business Matrix
 
 
-## Detailed Implementation 
+## Theory
 
 Another type of load is Incremental loads. This type of load occurs when full load has taken place and only subsequent amount of data changes needs to be loaded from source to destination. For sensitive data, this load can occur every five minute, depending on the infrastructure capacity. Slowly Changing Dimension (SCD) is a term used to identify which dimension tables you track historical changes. You may need to keep track of this so that if you were to run a report today and you want the report to be consistent to when you ran it one year ago before a customer’s address changed, the report would show you the same results.
 
@@ -90,5 +94,13 @@ For Loop Container Iterating tasks multiple times.
 
 Foreach Loop Container Iterating through each object or file.
  
-
 Each question mark (?) represents a different variable 
+
+
+#### Data Profiling, Parallelism, Transactions, logging, and security
+
+Data Profiler is used to evaluate the source data. It checks the content, structure and quality of data. It cannot identify bad data, but just the metrics. This includes the frequency of the values, the datatypes, NULLs, and length of data in the columns. You can setup a Data Profiler Task in Control flow.
+
+Parallelism is simply running multiple SSIS tasks concurrently (together in parallel). So when you have multiple tables to be loaded that don’t depend on each other for their data (Customers, Products, Cities), they can be loaded at the same time, instead of loading Products, then loading Cities, and finally Customers. It is very important to monitor parallelisation as sometime it can run slower impacting the purpose.
+
+
