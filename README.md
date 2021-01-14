@@ -8,7 +8,7 @@ Since this is a first time load, bringing all data from source to destination he
 
 1. Developed ETL solution which uses various different data sources like CSV, Excel and SQL using SSIS.
 2. Design Enterprise Business Matrix for Adevnturework Database.
-3. Designed star schema dimensional model by loading facts and dimensions.
+3. Designed star and snowflake schema dimensional model by loading facts and dimensions.
 4. Implement Error handelling and Logging of ETL solutions.
 
 
