@@ -40,6 +40,28 @@ Another important physical design relevant to data warehouse environment is deli
 each table of database where it is most likely to be accessed in the base parts table. By doing so the access of the data is more efficient, and the update is 
 not optimal. 
 
+Also, when their is wide disparity in the probability of access the data, then it is benefitial to seperate the data. Also, the introduction of derived data into 
+physical database design can reduce the amount of I/O needed. For example, storing the calculated fields or storing names in differebnt languages as used in AdventureWork
+database.
+
+Another technique is by creating creative index when operational data is tranfered to datawarehouse. The creative index does a profile on item that is of interest
+to end users for example latest shipmest, largest purchases or inactive users. Also, referential tables are used in maintaining datawarehouses.A database design a reference 
+table is a table into which an enumerated set of possible values of a certain field data type is divested.
+
+
+
+### Interfaces to many technologies
+
+Datawarehouse has the ability to both receive data and pass data from the wide variety of technologies. Data passes into the data warehouse from the operational environment and
+the ODS, and from the data warehouse into data marts, DSS applications, exploration and data mining warehouses, and alternate storage. The data passed to and from
+are in batch mode. The interface to different technologies require several consideration:
+1. Does data pass from one DBMS to another easily.
+2. Does it pass from one operating system to another easily.
+3. Does it change its basic format in passage (ASCII etc.)
+4. Can passage in multidimensional process be done easily.
+5. Is the context of data lost in translation as data is moved to other environments.
+
+
 
 
 
