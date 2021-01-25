@@ -62,6 +62,19 @@ are in batch mode. The interface to different technologies require several consi
 5. Is the context of data lost in translation as data is moved to other environments.
 
 
+### Distributed Datawarehouse
+
+#### Types of Distributed warehouse
+
+1. Business is distributed geographically among different product lines. In this case we have local and global data warehouse. The local datawarehouse is used for data processing at local site whereas in global datawarehouse is part of the business that is integrated accross the business.
+
+2. The data warehouse environment will hold a lot of data, and the volume of data will be distributed over multiple processors. Logically there is a single data warehouse, but physically there are many data warehouses that are all tightly related but reside on separate processors. This configuration can be called the technologically distributed data warehouse.
+
+3. The lack of coordination of the growth of the different data warehouses is a result of political and organizational differences. This case can be called the independently evolving distributed data warehouse.
+
+
+
+
 
 
 
