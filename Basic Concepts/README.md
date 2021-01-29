@@ -62,6 +62,23 @@ are in batch mode. The interface to different technologies require several consi
 5. Is the context of data lost in translation as data is moved to other environments.
 
 
+### MetaData Management
+
+Metadata is important because of the fundamental differences in development lifecycle of the datawarehouse. The datawarehouse follows iteartive development lifecycle. The user of the datawarehouse must have accurate and up-to date access to metadata.
+
+Typically, technical metadata is described in the following :
+
+1. Data warehouse table structure
+2. Data warehouse table attribution
+3. Data warehouse source data
+4. Mapping from the system of record to the datawarehouse
+5. Data model specification
+6. Exttact logging
+7. Common routines for access of data
+
+Their are two types of Meta data. The business data which is of use and value to business person. The next is the technical metadata which is of use and value to the technicians.  
+
+
 ### Distributed Datawarehouse
 
 #### Types of Distributed warehouse
