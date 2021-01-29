@@ -90,6 +90,14 @@ Their are two types of Meta data. The business data which is of use and value to
 3. The lack of coordination of the growth of the different data warehouses is a result of political and organizational differences. This case can be called the independently evolving distributed data warehouse.
 
 
+### OLAP (Multidimensional DBMS)
+
+Also called as data marts, allows the organisation to have flexible access to data, to slice and dice the data any number of ways, and to dynamically explore relationships between summary and detailed data. Multidimansioal DBMS offer both flexibiltiy and control to the end user. Data flows from datawarehouse to multidimensional database and periodically refreshed. 
+
+
+
+
+
 
 
 
