@@ -89,7 +89,15 @@ Their are two types of Meta data. The business data which is of use and value to
 
 3. The lack of coordination of the growth of the different data warehouses is a result of political and organizational differences. This case can be called the independently evolving distributed data warehouse.
 
+The mapping of data from the local operational systems to the data structure of the global data warehouse. It will be different for each local data warehouse.
+
 A variation of the local and global data warehouse structure that has been discussed is to allow a global data warehouse “staging” area to be kept at the local level. Each local area stages global warehouse data before passing the data to the central location. For example, say that in France are two data warehouses—one a local data warehouse used for French decisions. In this data warehouse, all transactions are stored in the French franc. In addition, there is a “staging area” in France, where transactions are stored in U.S. dollars. The French are free to use either their own local data warehouse or the staging area for decisions.
+
+
+#### Building Datawarehouse at multiple levels
+
+
+
 
 ### OLAP (Multidimensional DBMS)
 
