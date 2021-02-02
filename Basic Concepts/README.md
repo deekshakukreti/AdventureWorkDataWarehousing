@@ -94,15 +94,44 @@ The mapping of data from the local operational systems to the data structure of 
 A variation of the local and global data warehouse structure that has been discussed is to allow a global data warehouse “staging” area to be kept at the local level. Each local area stages global warehouse data before passing the data to the central location. For example, say that in France are two data warehouses—one a local data warehouse used for French decisions. In this data warehouse, all transactions are stored in the French franc. In addition, there is a “staging area” in France, where transactions are stored in U.S. dollars. The French are free to use either their own local data warehouse or the staging area for decisions.
 
 
-#### Building Datawarehouse at multiple levels
-
-
-
-
 ### OLAP (Multidimensional DBMS)
 
 Also called as data marts, allows the organisation to have flexible access to data, to slice and dice the data any number of ways, and to dynamically explore relationships between summary and detailed data. Multidimansioal DBMS offer both flexibiltiy and control to the end user. Data flows from datawarehouse to multidimensional database and periodically refreshed. 
 
+
+### External Data and the datawarehouse
+
+The data that comes internally from the corporation and has already been shaped into a regularly occuring format. External data and usually enters the corporation in an unpredictable format.
+
+When external data is not entered into the data warehouse :
+
+1. The original source of the data is an external file like excel, which analyst have to enter the data manually rather then from the source system.
+2. It becomes hard to recall the data.
+
+
+### A migration Plan
+
+The beginning of migration plan is the corporate data model which represents the needs of the corporation. The corporate data model, needs to identify, at minimum :
+
+1. Major subjects  of the corporation
+2. Definition of the major subjects of the corporation
+3. Relationships between the major subjects
+4. Groupings and keys that more fully represent the major subjects, including the following :
+	a. Attributes of the major subjects
+	b. Keys of the major subjects
+	c. Repeating groups of keys and attributes
+	d. Connectors between major subject areas
+	e. Subtyping relationships
+
+As a rule, the corporate data model identifies corporate information at a high level. From the corporate data model, a lower-level model is built. The lower-level model identifies details
+that have been glossed over by the corporate data model. This mid-level model is built from the subject areas that have been identified in the corporate data model, one subject area at a time.
+
+Reasons for excluding derived data and DSS data from the corporate data model and the mid-level model include the following :
+
+1. Derived data and DSS data change frequently.
+2. These forms of data are created from atomic data.
+3. They frequently are deleted altogether.
+4. There are many variations in the creation of derived data and DSS data.
 
 
 
