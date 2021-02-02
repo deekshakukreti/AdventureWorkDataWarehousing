@@ -99,7 +99,7 @@ A variation of the local and global data warehouse structure that has been discu
 Also called as data marts, allows the organisation to have flexible access to data, to slice and dice the data any number of ways, and to dynamically explore relationships between summary and detailed data. Multidimansioal DBMS offer both flexibiltiy and control to the end user. Data flows from datawarehouse to multidimensional database and periodically refreshed. 
 
 
-### External Data and the datawarehouse
+### External Data And The datawarehouse
 
 The data that comes internally from the corporation and has already been shaped into a regularly occuring format. External data and usually enters the corporation in an unpredictable format.
 
@@ -109,7 +109,7 @@ When external data is not entered into the data warehouse :
 2. It becomes hard to recall the data.
 
 
-### A migration Plan
+### A Migration Plan
 
 The beginning of migration plan is the corporate data model which represents the needs of the corporation. The corporate data model, needs to identify, at minimum :
 
