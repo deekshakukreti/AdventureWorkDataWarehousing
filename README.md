@@ -43,9 +43,6 @@ This table is populated from Sales.SpecialOffer which has only 16 records in the
 The dimansional table is derived from ProductionSubCategory table. The package development consist of OLEDB source and destination components alongwith derived column component. Only 37 records were reproduced in this table.
 
 
-#### Table 8 : dbo.DimProductCategory
-
-
 
 ## Task 2 : Enterprise Business Matrix
 
