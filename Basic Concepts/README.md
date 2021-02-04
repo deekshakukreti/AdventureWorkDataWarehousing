@@ -133,6 +133,53 @@ Reasons for excluding derived data and DSS data from the corporate data model an
 3. They frequently are deleted altogether.
 4. There are many variations in the creation of derived data and DSS data.
 
+After this, the next activity is defining the system of record. It is the identification of the 'best' data the corporation has. In other words, the architect
+starts with the data model and asks what data is in hand that fullfills the data requirement identified in the data model. 
+
+Once, the system of records is defined then the technological challenges are identified that could be faced while brining the data in datawarehouse. Few technological challenges are:
+1. A change in DBMS : The system of record in one DBMS, and the datawarehouse is in another DBMS.
+2. A change in operating systems : The system of record is in one operating system, and the datawarehouse is in another system.
+3. The need to merge data from different DBMS and operating system : System-of-record data must be pulled from multiple DBMSs and multiple operating systems and must be merged in a meaningful way. 
+4. A change in basic data format : Data in one environment is stored in ASCII, data in the data warehouse is stored in EBCDIC.
+
+Other related issues are , huge volume of data to be migrated in datawarehouse. The cleansing of data is also important challenge faced during migration if data.
+
+After all the analysis of technological challenges, the next step is to design data warehouse. If data modelling is done properly, then design is very simple.
+
+Few elements that change data model to datawarehouse are :
+
+1. An element of time needs to be added to the key structure if one is not already present.
+2. All operational data needs to be eliminated.
+3. Referential integrity relationships need to be turned into artifacts.
+4. Derived data that is frequently needed is added to the design.
+
+The data needs to be altered when appropriate :
+
+1. Adding arrays of data
+2. Adding data redundantly
+3. Further seperating data under right conditions
+4. Merging tables when appropraite
+
+
+#### Stability Analysis Of Data
+
+In stability analysis, data whose content has tendancy to change is isolated to data whose content is stable. For example, bank account balance changes frequently in a day, but the customer address changes very slowly.Because of the difference in stability of bank account balance and customer address, 
+these elements of data need to be seperated into different physical constructs.
+
+
+After the data warehouse design is complete, it is important to design and build interfaces between the system of records and datawarehouse. ETL softwares are used to build and maintain interfaces.
+If you wait for existing systems to be cleaned up, you will never build a data warehouse. The issues and activities of the existing systems’ operational environment must be independent of the issues and activities of the data warehouse environment. One train of thought says, “Don’t build the data
+warehouse until the operational environment is cleaned up.”
+
+The analysts communicates with the datawarehouse team to make the adjustments in datawarehouse that is communicated as a requirement.The data architect may add
+data, delete data, alter data, and so forth based on the recommendations of the end user who has touched the data warehouse.
+
+
+#### Strategic Considerations
+
+
+
+
 
 
 
