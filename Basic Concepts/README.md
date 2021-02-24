@@ -175,9 +175,27 @@ The analysts communicates with the datawarehouse team to make the adjustments in
 data, delete data, alter data, and so forth based on the recommendations of the end user who has touched the data warehouse.
 
 
-#### Strategic Considerations
+### Strategic Considerations
+
+The steps data architect takes to restructure the operational environment - which is an activity different from building datawarehouse is :
+
+Step 1 : The delta list is an assessment of the differences between the operational environment and the environment depicted by the data model.  
+Step 2 : The next step is the impact analysis. At this point an assessment is made of the impact of each item on the delta list.
+Step 3 : The resource estimate is created. This estimate is for the determination of how many resources will be required to “fix” the delta list item.
+Step 4 : All the preceding are packaged in a report that goes to information systems management. Management then makes a decision as to what work should proceed, at what pace, and so forth.
 
 
+### Data-Driven Development Methodology
+
+The data warehouse environment is built under what is best termed as an iterative development approach. In this approach, a small part of the system is
+built to completion, and then another small part is completed, and so forth. That development proceeds down the same path repeatedly, which makes the
+approach appear to be constantly recycling itself. The constant recycling leadsto the term spiral development.
+
+The spiral approach to development is distinct from the classical approach,which can be called the waterfall approach. In the waterfall approach, all of one
+activity is completed before the next activity can begin, and the results of one activity feed another. Requirements gathering is done to completion before
+analysis and synthesization commence. Analysis and synthesization are done to completion before design begins. The results of analysis and synthesization
+feed the process of design, and so forth. The net result of the waterfall The data warehouse environment is built under what is best termed as anapproach is that huge amounts of time are spent making any one step complete,
+causing the development process to move at a glacial speed.
 
 
 
